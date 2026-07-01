@@ -1,0 +1,4 @@
+interface:
+  display_name: "Innovation Workflow"
+  short_description: "Redesign workflows for AI-native innovation"
+  default_prompt: "Use $e-innovation-workflow to redesign this current process into an AI-native innovation workflow."

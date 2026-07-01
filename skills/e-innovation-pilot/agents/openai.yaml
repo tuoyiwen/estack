@@ -1,0 +1,4 @@
+interface:
+  display_name: "Innovation Pilot"
+  short_description: "Design 30/60/90-day AI innovation pilots"
+  default_prompt: "Use $e-innovation-pilot to design a 30/60/90-day enterprise AI innovation pilot."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Innovation Metrics"
+  short_description: "Measure AI innovation outcomes and adoption"
+  default_prompt: "Use $e-innovation-metrics to define metrics for this AI-native innovation workflow."

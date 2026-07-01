@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Governance"
+  short_description: "Set practical governance for AI workflows"
+  default_prompt: "Use $e-ai-governance to define governance, review, and risk boundaries for this AI workflow."

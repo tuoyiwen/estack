@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Innovation Map"
+  short_description: "Prioritize enterprise AI innovation use cases"
+  default_prompt: "Use $e-innovation-map to map and prioritize AI innovation use cases for this organization."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Estack"
+  short_description: "Route enterprise AI-native innovation work"
+  default_prompt: "Use $estack to decide which estack skill should handle our enterprise AI innovation transformation request."

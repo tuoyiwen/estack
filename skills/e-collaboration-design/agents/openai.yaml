@@ -1,0 +1,4 @@
+interface:
+  display_name: "Collaboration Design"
+  short_description: "Design human-AI collaboration protocols"
+  default_prompt: "Use $e-collaboration-design to design the human-AI collaboration configuration for this innovation task."
