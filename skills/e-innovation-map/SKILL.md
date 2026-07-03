@@ -47,6 +47,12 @@ Then add:
 - **Configuration notes** explaining why a case needs human-first, AI-first, alternating, or parallel work.
 - **Next skill** recommendation, usually `$e-collaboration-design` for the top use case.
 
+## Knowledge Base
+
+- Read `knowledge-base/core/use-cases.md` first: it holds the starter use case portfolio (8 cases with recommended configurations) and the 7-dimension Use Case Selection Rubric to score candidates.
+- For maturity diagnosis or client storytelling, pull from `knowledge-base/references/benchmark-cases.md` (Block, Kuaishou).
+- When a use case depends on external facts, route evidence work through `knowledge-base/references/web-search-evidence-workflows.md`.
+
 ## Guardrails
 
 - Do not produce a generic department-by-department AI checklist.

@@ -74,3 +74,68 @@ Block 的案例不是“AI coding tool adoption”，而是从 adoption 走向 i
 ### 可用于 estack 的 demo
 
 这个案例可以成为 `$e-innovation-workflow` 的 demo：把“工程组织 AI adoption”诊断为 maturity stage，然后生成 AI-ready repository checklist、champion program、workflow integration plan 和 governance review。
+
+## Kuaishou main-site: 千人工程团队的 AI Native 三层重构
+
+| 字段 | 内容 |
+|---|---|
+| Title | 快手主站：从个人提效到组织提效的 AI Native 转型 |
+| Type | benchmark case / organization-level AI transformation |
+| Source | https://mp.weixin.qq.com/s/xtTD12A9KNEbROfNwHDh6Q (GIAC 2026 深圳站，快手主站 AIDevops 负责人李思) |
+| Relevant skill | `$estack`, `$e-innovation-workflow`, `$e-collaboration-design`, `$e-innovation-metrics`, `$e-ai-governance` |
+| What it helps decide | 判断企业 AI adoption 卡在个体层还是组织层，以及组织层应该重构什么：信息、流程还是组织结构。 |
+| Reusable output | 三层重构框架；L1/L2/L3 范式分级；双路径演进；交付/守护分离；决策冻结 + spec handoff；AIGC 内容流水线 demo |
+| Confidence | full-text backed：原文已归档，关键数字和机制均来自演讲实录。 |
+
+Source archive: [[../archive/original-sources/2026-07-03_迈向AI-Native_技术团队的范式跃迁与组织进化_原文|快手 AI Native 原文归档]]
+
+### 核心案例判断
+
+这是目前 knowledge-base 里最完整的“个人提效不等于组织提效”实证案例：千余名工程师，代码生成率从 17% 升到 30%，各环节采纳率都高，但端到端交付周期几乎没变。归因发现约 90% 工程师工作方式没有真正改变；差异不在用不用 AI，而在是否改变了和 AI 协作的方式。
+
+### 关键数字
+
+| 数字 | 含义 |
+|---|---|
+| 89% vs 0.29% | NBER 调查：89% 企业已把 AI 投入业务，平均生产力提升仅 0.29% |
+| 17% -> 30% | 代码生成率提升，但交付周期不变 |
+| ~10% | 真正改变工作方式的工程师比例 |
+| 20%-30% | L2 相对 L1 的交付周期缩短 |
+| 20 天 -> 4 天以内 | 直播礼物上新周期（L3 端到端案例） |
+
+### 诊断框架：两个不等式
+
+1. 用 AI 开发工具不等于个人提效。
+2. 个人提效不等于组织提效。
+
+组织没变快的根源是围绕人设计的研发结构卡住了 AI：技术栈切分导致信息分离，串行流程导致交接损耗，角色边界导致协调摩擦。AI 越快，人和人之间的协作摩擦反而越显性，人机协作本身也成为新的隐性成本（四类摩擦见 [[research-anchors|research anchors]]）。
+
+### 解法：三层重构
+
+| 层 | 重构内容 |
+|---|---|
+| 信息层 | 信息架构从围绕人重组为围绕 AI；私域基础设施 AI 友好化；企业知识工程 |
+| 流程层 | 从串行多角色协作转向 Agentic 模式；人的对齐前置消化（意图对齐、决策冻结），agent 承担结构化执行 |
+| 组织层 | 交付与守护分层：交付层抹平前后端职能，设功能 Owner 单人闭环；守护层由架构师定标准、建机制、守门禁。产研边界溶解：赋能设计师、产品自主交付，研发从默认承接方变成复杂专业问题承接方 |
+
+### 范式分级与演进路径
+
+- L1 辅助：AI 在部分环节提供信息。
+- L2 协作：AI 提供初稿，人完善。
+- L3 自主：AI 自主完成需求交付。
+
+两条路径并行：L1 -> L2 主航道大规模铺开；结构成熟、边界清晰的场景（B 端、0 到 1、运营类）直接跃迁 L3。目前 L2 已成主流范式。
+
+### 度量前提
+
+组织先花三年建了度量地基：研发活动在线化、可信数据、效能北极星、可拆解可归因的指标体系，之后才扩展出 AI 渗透率和 AI 成熟度维度。没有这个地基，连“组织快没快”都量不出来。
+
+### 尚未解决的问题
+
+- 验证能力规模化：C 端场景如何做稳定、高效的规模化验证。
+- 先锋队模式：先锋团队的灵活性与未来标准化如何平衡。
+- 人的问题：品味和判断如何被看见；组织是否为判断留时间；AI 跳过了“慢慢写”的过程，年轻工程师如何生长。
+
+### 可用于 estack 的 demo
+
+这个案例适合作为 `$estack` router 的开场故事和 `$e-innovation-metrics` 的核心 demo：先用“两个不等式”诊断客户处在哪一层断裂，再用三层重构框架生成 workflow redesign 方案，用 L1/L2/L3 需求占比作为 AI 成熟度指标。与 Block 案例互补：Block 讲工程组织如何走向 agentic delegation，快手讲整个产研组织如何重构信息、流程和角色边界。

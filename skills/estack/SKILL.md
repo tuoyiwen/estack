@@ -24,6 +24,26 @@ Route the user to one or two skills based on the real task:
 | "How do we measure whether this worked?" | `$e-innovation-metrics` |
 | "What rules, risk controls, and approvals do we need?" | `$e-ai-governance` |
 
+## Knowledge Base Routing
+
+Before producing output, read the smallest useful layer of `knowledge-base/`. Open `references/` only when the task needs cases, mechanisms, or evidence workflows.
+
+| User need | Read first | Read if needed |
+|---|---|---|
+| Find enterprise AI opportunities | `knowledge-base/core/use-cases.md` | `knowledge-base/references/benchmark-cases.md` |
+| Design human-AI interaction | `knowledge-base/core/collaboration-patterns.md` | `knowledge-base/references/research-anchors.md` |
+| Redesign a workflow | `knowledge-base/core/workflow-patterns.md` | `knowledge-base/references/benchmark-cases.md` |
+| Produce client-ready artifacts | `knowledge-base/core/output-templates.md` | `knowledge-base/core/onboarding-prompts.md` |
+| Define pilot success | `knowledge-base/core/metrics-and-rubrics.md` | `knowledge-base/references/web-search-evidence-workflows.md` |
+| Set risk boundaries | `knowledge-base/core/governance-controls.md` | `knowledge-base/references/technical-enablers.md` |
+| Ground claims in external evidence | `knowledge-base/references/web-search-evidence-workflows.md` | `knowledge-base/archive/original-sources/` |
+
+Useful diagnostic assets in the knowledge base:
+
+- **Two inequalities** (Kuaishou case): using AI tools ≠ individual productivity; individual productivity ≠ organizational productivity. Use them to locate where the client's adoption is stuck before recommending a path.
+- **Maturity models**: Block's six-stage agentic ladder and Kuaishou's L1/L2/L3 paradigm levels, both in `references/benchmark-cases.md`.
+- **Completed example**: a filled Collaboration Configuration Card in `core/output-templates.md` for showing what estack output looks like.
+
 If the user gives a broad transformation request, use this sequence:
 
 1. `$e-innovation-map` to identify and prioritize candidate innovation use cases.

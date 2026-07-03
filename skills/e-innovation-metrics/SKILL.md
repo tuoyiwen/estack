@@ -53,6 +53,11 @@ Then produce:
 
 State what evidence would justify scaling, iterating, or stopping the workflow.
 
+## Knowledge Base
+
+- Read `knowledge-base/core/metrics-and-rubrics.md` first: the seven-layer metrics stack, rubrics, AI maturity metrics (L1/L2/L3 share), collaboration friction metrics, and the minimum pilot dashboard.
+- Apply its Measurement Pitfalls before proposing any dashboard: adoption rate is not a delivery outcome; individual and organizational metrics must be separated; a measurement baseline must exist before AI metrics mean anything.
+
 ## Guardrails
 
 - Do not reduce innovation value to time saved.

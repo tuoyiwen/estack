@@ -10,7 +10,7 @@ updated: 2026-07-03
 
 这个文件收集不同人机协作顺序与分工模式，服务 `$e-collaboration-design`。
 
-核心判断：estack 不是“让 AI 多做一点”，而是根据任务性质设计 **谁先定义、谁扩展、谁搜索、谁判断、谁复核、谁承担责任**。
+核心判断：estack 是根据任务性质设计 **谁先定义、谁扩展、谁搜索、谁判断、谁复核、谁承担责任**。
 
 ## Pattern Library
 
@@ -24,6 +24,8 @@ updated: 2026-07-03
 | Search-first, AI synthesizes, human verifies | 市场/竞品/法规/技术证据扫描 | 定义问题、检查来源、判断是否足够支持决策 | 设计 query plan、搜索、整理 evidence matrix | Web Research Brief + Evidence Matrix | 引用错误、来源偏差、过时信息 | 人类必须检查 source quality 和 claim-source fit |
 | Agent delegates, human reviews | 工程、运营、数据分析等可委派任务 | 拆解目标、验收、接管失败 | 执行任务、生成 artifact、修复反馈 | PR / report / workflow artifact | review bottleneck、责任不清 | 明确 owner、review time、escalation path |
 | AI reviews, AI fixes, human arbitrates | 多 agent 并行产出后的质量控制 | 设定验收标准和最终裁决 | 自动 review、自动修复、生成差异说明 | Review log + final artifact | 自动互相确认错误 | 高风险变更必须人工验收 |
+| Align upfront, freeze, then delegate | 多角色协作流程（产品/设计/研发） | 前置完成意图对齐和决策冻结，审核 spec | 基于结构化 spec 高自主执行 | Structured spec | 对齐不充分导致执行返工；冻结后需求又变 | spec 经人审核冻结后才进入执行；变更走重新冻结 |
+| Human sets goals, AI produces and evaluates | 内容生产 / AIGC 流水线 | 定义目标、标准、关键方向 | 方向、分镜、生成、剪辑、评审全链路 + 反馈因子回流 | Evaluated content candidates | 评测标准失真、质量漂移 | 人定义 evaluation rubric，定期抽检 agent 评审结果 |
 
 ## Selection Rules
 
@@ -37,6 +39,24 @@ updated: 2026-07-03
 | 需要外部事实、当前信息、引用证据 | Search-first, AI synthesizes, human verifies |
 | 有明确任务、上下文、验收标准 | Agent delegates, human reviews |
 | 产出速度已经超过人工 review 能力 | AI reviews, AI fixes, human arbitrates |
+| 多角色串行协作摩擦在吃掉 AI 提效 | Align upfront, freeze, then delegate |
+| 内容/创意产能受限于人的认知和时间 | Human sets goals, AI produces and evaluates |
+
+## 真实案例映射
+
+| Pattern | 真实案例 | 出处 |
+|---|---|---|
+| Agent delegates, human reviews | Block Stage 3：人拆解任务，agent 产出 PR，人 review | Block 案例 |
+| AI reviews, AI fixes, human arbitrates | Block Stage 4：多 agent 并行后用 automated review + auto-fix loop 解 review 瓶颈 | Block 案例 |
+| Align upfront, freeze, then delegate | 快手流程层重构：意图对齐、决策冻结前置，spec handoff 后保持执行链路高自主 | 快手案例 |
+| Human sets goals, AI produces and evaluates | 快手直播礼物：人定目标和标准，agent 做方向/分镜/生成/评审，上新周期 20 天到 4 天 | 快手案例 |
+| AI prepares, human decides（反面教材） | HBR：中层被迫充当 AI 输出的隐形复核层，review 时间没有进 charter | HBR 抽取 |
+
+案例出处：
+
+- Block 案例：[[../references/benchmark-cases#Full-text extraction: Block agentic engineering maturity case]]
+- 快手案例：[[../references/benchmark-cases#Kuaishou main-site: 千人工程团队的 AI Native 三层重构]]
+- HBR 抽取：[[governance-controls#Full-text extraction: middle-manager load as governance risk]]
 
 ## Collaboration Configuration Card
 

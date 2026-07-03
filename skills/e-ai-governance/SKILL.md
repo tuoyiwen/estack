@@ -55,6 +55,12 @@ Check for:
 - unclear ownership of AI-assisted concepts
 - over-automation of strategic judgment
 
+## Knowledge Base
+
+- Read `knowledge-base/core/governance-controls.md` first: middle-manager load controls, review bottleneck rules, verification-at-scale and blast-radius controls, web source and citation rules.
+- For evidence-dependent outputs, apply the source quality rubric and citation log rules from `knowledge-base/references/web-search-evidence-workflows.md`.
+- For model adaptation questions (fine-tuning, RFT), use the boundary rules in `knowledge-base/references/technical-enablers.md`; do not recommend model training as a default transformation step.
+
 ## Guardrails
 
 - Do not write policy as if all AI use is equally risky.

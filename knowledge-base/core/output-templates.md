@@ -145,3 +145,21 @@ updated: 2026-07-03
 | Claim-source fit | 来源直接支持结论 | 来源只支持一部分 | 来源和结论关系弱 |
 | Traceability | URL、作者、日期、引用位置完整 | 有 URL 但元数据不全 | 无法追溯 |
 | Bias risk | 中立或可交叉验证 | 有商业立场但透明 | 明显营销/夸张/不可验证 |
+
+## 11. Completed Example: Collaboration Configuration Card（快手直播礼物）
+
+这是模板 2 的完整填写示例，材料来自 [[../references/benchmark-cases#Kuaishou main-site: 千人工程团队的 AI Native 三层重构|快手案例]]。给用户演示 estack 输出长什么样时优先用它。
+
+| Field | Content |
+|---|---|
+| Task | 直播礼物内容的设计、生成与上新 |
+| Collaboration pattern | Human sets goals, AI produces and evaluates |
+| Human role | 定义目标、标准和关键方向；审定商业化与品牌底线 |
+| AI role | 方向/剧本/分镜/美术制作（AIGC agent）；生成、剪辑、合成（Agent Tools）；评审、验证、评测（Agent evaluation） |
+| Sequence | 人定目标 -> agent 全链路生产 -> agent 评测初筛 -> 人抽检与终审 -> 上线 -> 消费付费特征因子回流 |
+| Handoff artifact | Evaluated content candidates（带评测分和依据） |
+| Review checkpoints | 内容方向确认；品牌/合规底线抽检；商业化终审 |
+| Escalation triggers | 评测分布异常（质量漂移）；涉敏感题材；付费数据异常 |
+| Metrics | 上新周期（20 天 -> 4 天以内）；产出多样性；抽检通过率；付费转化 |
+| Risks | 评测标准失真；内容同质化；版权/IP |
+| Governance rule | 人定义 evaluation rubric 并定期校准；agent 评审结果定期抽检对照人工判断 |

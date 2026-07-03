@@ -65,6 +65,33 @@ updated: 2026-07-03
 | Knowledge-sharing frequency | 判断 adoption 是否进入团队方法沉淀 |
 | Coaching time change | 判断是否损害领导力培养管道 |
 
+## Measurement Pitfalls
+
+来自快手案例（[[../references/benchmark-cases#Kuaishou main-site: 千人工程团队的 AI Native 三层重构|benchmark cases]]）的三个度量教训：
+
+1. **采纳率不等于交付结果**：代码生成率 17% -> 30%、各环节采纳率都高，但端到端交付周期不变。使用率指标只能证明工具被用了，不能证明组织变快了。
+2. **个体指标和组织指标必须分层看**：个体耗时在降、组织周期不动，说明断裂在协作层。指标体系要能定位断在哪一层（个体 / 协作 / 组织），而不是只出一个总分。
+3. **度量地基先于 AI 度量**：研发活动在线化、数据可信、指标可拆解可归因，是谈 AI 提效的前提。客户连 baseline 都量不出来时，pilot 第一步是建度量，不是上 AI。
+
+## AI Maturity Metrics
+
+| Metric | Definition | 用途 |
+|---|---|---|
+| AI 渗透率 | AI 参与的需求/任务占比 | 广度指标，容易虚高，只作背景 |
+| AI 成熟度（L1/L2/L3 占比） | 需求按 L1 辅助 / L2 协作 / L3 自主分级后的分布 | 核心结构指标：L2/L3 占比上升才代表范式在升级 |
+| 分级周期对比 | L2 vs L1、L3 vs L1 的交付周期差 | 证明范式升级的收益（快手：L2 较 L1 缩短 20%-30%） |
+
+## Collaboration Friction Metrics
+
+对应四类人机协作摩擦（[[../references/research-anchors|research anchors]]）：
+
+| Friction | Metric |
+|---|---|
+| 人工补位 | 人在系统间搬运信息的时间占比 |
+| 上下文对齐 | 每个任务的上下文准备时间 |
+| 验证与纠偏 | 验证时长 / 生成时长比；返工率 |
+| 能力边界判断 | 高估返工次数；低估漏用机会（抽样评估） |
+
 ## Measurement Cadence
 
 | Stage | Measure |

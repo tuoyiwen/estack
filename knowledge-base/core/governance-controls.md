@@ -100,6 +100,24 @@ Block 案例显示，从单个 agent 到多 agent 并行后，瓶颈会从“能
 - 跨仓库 / 跨服务 delegation 需要 company world model，但也需要权限、依赖和失败接管机制。
 - Stage 5 完整任务委派不能只看是否能 ship，还要问：谁拥有最终责任？哪些角色被重塑？组织是否知道自动化成功后要走向哪里？
 
+## Full-text extraction: 快手 AI Native 的治理与人员风险
+
+Source: [[../archive/original-sources/2026-07-03_迈向AI-Native_技术团队的范式跃迁与组织进化_原文|快手 AI Native 原文归档]]
+
+### 治理风险
+
+- **验证规模化**：AI 生成几分钟，人工验证几小时。C 端场景的稳定验证是快手明确承认尚未解决的难题；任何承诺 L3 端到端交付的 pilot 都必须先回答验证怎么规模化。
+- **爆破半径扩大**：AI 能力越强，自主半径越大，潜在爆破半径也越大；闯祸的代价由人承担。
+- **守护缺位**：交付层职能抹平后，如果没有对应的守护层（定标准、建机制、守门禁），质量和架构风险会失控。
+- **年轻工程师成长管道**：AI 跳过了“慢慢写”的成长过程，品味、直觉、对系统的敬畏失去生长土壤。这与 HBR 的 `leadership_pipeline_risk`（见上文中层负荷检查项）是同一类风险的两端：一个断在管理者培养，一个断在专业判断力培养。
+
+### 控制规则
+
+- 每个 L3 / 端到端 pilot 必须写明验证机制、验证 owner 和验证吞吐量，验证能力跟不上就降级到 L2。
+- 自主半径扩大前，先建兜底：约束可见、回滚、应急预案。
+- 交付与守护分离时，守护层的标准、门禁和 owner 必须显式定义，不能默认原团队兼任。
+- Pilot 的 role impact review 增加两项：`taste_and_judgment_visibility`（看不见的判断价值是否有位置和认可）、`junior_growth_space`（是否给年轻成员留了试错和生长空间）。
+
 ## Web search, citation, and source-risk controls
 
 Source: [[../references/web-search-evidence-workflows|Web Search and Research Workflows]]

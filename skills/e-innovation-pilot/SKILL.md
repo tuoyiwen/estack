@@ -63,6 +63,12 @@ Then add:
 - risk log
 - scale decision memo template
 
+## Knowledge Base
+
+- Use the Pilot Charter template in `knowledge-base/core/output-templates.md`, including the middle-manager load and review capacity field.
+- Run the pilot governance checks in `knowledge-base/core/governance-controls.md`: manager review capacity, learning time protection, verification-at-scale readiness, role impact.
+- For scenario selection, apply the dual-path rule from `knowledge-base/core/workflow-patterns.md`: only promise end-to-end autonomy (L3) when task boundaries are clear, risk is controllable, and error tolerance is high.
+
 ## Guardrails
 
 - Do not recommend a pilot without an owner and a measurable work episode.

@@ -67,6 +67,11 @@ Produce:
 | Item | Owner | Effort | Dependency | Priority |
 |---|---|---:|---|---|
 
+## Knowledge Base
+
+- Read `knowledge-base/core/workflow-patterns.md` first: maturity ladders (Block six-stage, Kuaishou L1/L2/L3 dual-path), three-layer restructuring (information/process/organization), align-upfront-freeze-then-delegate, delivery/guardian separation, and the AIGC pipeline pattern.
+- Use `knowledge-base/references/benchmark-cases.md` to ground the diagnosis in real transformations before proposing the to-be design.
+
 ## Guardrails
 
 - Do not merely insert AI into the old workflow. Redesign the sequence, artifacts, and decision rights.

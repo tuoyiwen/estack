@@ -23,6 +23,7 @@ updated: 2026-07-03
 | Web research / evidence scan | 研究 / 情报 / 战略 / 产品 | 搜索分散、来源质量不一、结论不可追溯 | 设计 query plan，抓取证据，生成 evidence matrix 和 citation log | 判断来源可信度、遗漏角度、是否足够支持决策 | Search-first, AI synthesizes, human verifies | 引用不准、来源偏差、网页时效变化 | Web Research Brief、Evidence Matrix、Citation Log |
 | 工程组织 agentic workflow | 技术 / 研发平台 | AI 工具使用率高但交付未变快 | 建 AI-ready repository、agent delegation、review loop、multi-agent orchestration | 架构决策、质量验收、责任归属 | Agent delegates, human reviews | review bottleneck、责任不清、人员影响 | AI-native Workflow Blueprint、Pilot Charter |
 | 内部知识检索与决策支持 | HR / 法务 / 财务 / 运营 / IT | 知识散在文档和系统中，问答不可追溯 | RAG / internal retrieval，生成带来源的流程建议 | 政策解释、例外处理、合规责任 | AI prepares, human decides | 数据权限、过期知识、错误建议 | Retrieval Boundary Decision、Governance Matrix |
+| AIGC 内容生产流水线 | 运营 / 内容 / 设计 / 市场 | 创意产能受限于人的认知和时间，上新周期长 | Agent 承担方向、分镜、生成、剪辑、评审全链路，消费反馈因子回流 | 内容方向、品牌与合规底线、商业化取舍 | Human sets goals, AI produces and evaluates | 内容质量漂移、评测标准失真、版权/IP | Workflow Blueprint、Evaluation Rubric（实证：快手直播礼物上新 20 天 -> 4 天，见 [[../references/benchmark-cases\|benchmark cases]]） |
 
 ## Use Case Selection Rubric
 

@@ -64,6 +64,12 @@ Finally produce a **Human-AI Interaction Protocol**:
 - The process records final outputs but not rejected alternatives.
 - Accountability becomes ambiguous after AI involvement.
 
+## Knowledge Base
+
+- Read `knowledge-base/core/collaboration-patterns.md` first: 10 named patterns with selection rules, review rules, and a real-case mapping (Block, Kuaishou, HBR).
+- Check `knowledge-base/references/research-anchors.md` for the four collaboration frictions (manual bridging, context alignment, verification asymmetry, capability-boundary misjudgment); design the configuration to reduce them explicitly.
+- Use the completed Collaboration Configuration Card example in `knowledge-base/core/output-templates.md` as the output quality bar.
+
 ## Guardrails
 
 - Do not recommend "AI does first draft, human reviews" as the default for every task.
