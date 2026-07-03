@@ -1,6 +1,6 @@
 ---
 name: e-innovation-map
-description: Map and prioritize enterprise AI innovation use cases. Use when an organization needs to identify where AI should be applied first, compare candidate innovation or knowledge-work scenarios, choose pilots, or decide which human-AI collaboration configuration fits each use case.
+description: Map and prioritize enterprise AI innovation use cases. Use when an organization needs to identify where AI should be applied first, compare candidate innovation or knowledge-work scenarios, choose pilots, or decide which human-AI collaboration configuration fits each use case. Also triggers on Chinese requests about AI应用场景盘点, 从哪里开始用AI, 场景优先级.
 ---
 
 # E-Innovation Map
@@ -49,11 +49,15 @@ Then add:
 
 ## Knowledge Base
 
+The knowledge base lives at `knowledge-base/` in the estack repository root. If it is not present (standalone install), work from this file's scoring dimensions and configurations, and note the full knowledge base is at <https://github.com/tuoyiwen/estack>.
+
 - Read `knowledge-base/core/use-cases.md` first: it holds the starter use case portfolio (8 cases with recommended configurations) and the 7-dimension Use Case Selection Rubric to score candidates.
 - For maturity diagnosis or client storytelling, pull from `knowledge-base/references/benchmark-cases.md` (Block, Kuaishou).
 - When a use case depends on external facts, route evidence work through `knowledge-base/references/web-search-evidence-workflows.md`.
 
 ## Guardrails
+
+- Write the portfolio in the user's working language; keep configuration names in English.
 
 - Do not produce a generic department-by-department AI checklist.
 - Do not equate high efficiency potential with high innovation value.

@@ -1,6 +1,6 @@
 ---
 name: e-innovation-pilot
-description: Design enterprise AI innovation pilots for human-AI collaboration workflows. Use when the user needs a 30/60/90-day pilot, experiment charter, participant plan, task design, comparison condition, rollout plan, or success and stop criteria.
+description: Design enterprise AI innovation pilots for human-AI collaboration workflows. Use when the user needs a 30/60/90-day pilot, experiment charter, participant plan, task design, comparison condition, rollout plan, or success and stop criteria. Also triggers on Chinese requests about AI试点, 试点方案, 怎么先小范围试.
 ---
 
 # E-Innovation Pilot
@@ -63,7 +63,18 @@ Then add:
 - risk log
 - scale decision memo template
 
+## Built-In Checks
+
+Run these even without the knowledge base:
+
+- **Manager load**: budget explicit review time for managers in the charter; hidden review work is the most common way pilots silently fail (HBR middle-manager finding).
+- **Learning time**: protect participant time to learn the new workflow; do not measure output during the learning window as if it were steady state.
+- **Verification at scale**: if AI output volume will exceed human review capacity during the pilot, design the review loop before launch, not after.
+- **L3 promise rule**: only promise end-to-end AI autonomy when task boundaries are clear, risk is controllable, and error tolerance is high.
+
 ## Knowledge Base
+
+The knowledge base lives at `knowledge-base/` in the estack repository root. If it is not present (standalone install), work from the Built-In Checks above and note the full knowledge base is at <https://github.com/tuoyiwen/estack>.
 
 - Use the Pilot Charter template in `knowledge-base/core/output-templates.md`, including the middle-manager load and review capacity field.
 - Run the pilot governance checks in `knowledge-base/core/governance-controls.md`: manager review capacity, learning time protection, verification-at-scale readiness, role impact.
@@ -71,7 +82,12 @@ Then add:
 
 ## Guardrails
 
+- Write the charter and timeline in the user's working language; keep configuration names in English.
 - Do not recommend a pilot without an owner and a measurable work episode.
 - Do not measure only satisfaction or time saved.
 - Do not run a high-risk pilot without governance review.
 - Do not call the pilot successful unless the evidence supports scale, iteration, or a clear stop decision.
+
+## Next Skill
+
+Define metrics with `$e-innovation-metrics` before launch, and set risk boundaries with `$e-ai-governance` before running a medium- or high-risk pilot.

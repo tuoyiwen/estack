@@ -71,6 +71,8 @@ The skills are grounded in a compact judgment library rather than general readin
 
 Routing rules are in [`knowledge-base/README.md`](knowledge-base/README.md).
 
+Skills degrade gracefully when installed without the repo: each SKILL.md carries its own inline essentials (pattern menu, maturity anchors, built-in checks, measurement pitfalls, core controls), and the knowledge base adds depth when a full checkout is available.
+
 ## Repository Layout
 
 ```text
@@ -108,4 +110,4 @@ This keeps the product credible for enterprises while preserving the research me
 
 ## Version
 
-v0.3 connects the skills to the knowledge base: the router and each core skill now read from `knowledge-base/core/` and `knowledge-base/references/`, the knowledge base includes fully extracted benchmark cases (Block, Kuaishou, HBR) with a completed template example, and the README leads with onboarding. Next: a full demo case walkthrough.
+v0.4 makes each skill self-contained and chains them: every SKILL.md now embeds its load-bearing essentials (collaboration pattern menu, maturity anchors, pilot checks, measurement pitfalls, governance controls) so standalone installs work without the repo checkout; skills hand off to each other via explicit Next Skill sections; artifacts follow the user's working language; descriptions trigger on Chinese requests. Next: a full demo case walkthrough.

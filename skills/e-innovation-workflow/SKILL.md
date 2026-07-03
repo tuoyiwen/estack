@@ -1,6 +1,6 @@
 ---
 name: e-innovation-workflow
-description: Redesign existing enterprise workflows into AI-native innovation workflows. Use when the user has a current process and needs an as-is/to-be blueprint, swimlane, SOP, operating cadence, handoff design, or implementation backlog for human-AI work.
+description: Redesign existing enterprise workflows into AI-native innovation workflows. Use when the user has a current process and needs an as-is/to-be blueprint, swimlane, SOP, operating cadence, handoff design, or implementation backlog for human-AI work. Also triggers on Chinese requests about 流程改造, AI-native 工作流, 流程重构.
 ---
 
 # E-Innovation Workflow
@@ -67,13 +67,28 @@ Produce:
 | Item | Owner | Effort | Dependency | Priority |
 |---|---|---:|---|---|
 
+## Maturity Anchors
+
+Use these to place the client before designing the to-be workflow (full versions in the knowledge base):
+
+- **Block six-stage ladder**: code completion -> chat-assisted coding -> agent does bounded tasks with human review -> multi-agent with automated review and auto-fix -> agents own workflows end to end -> agentic organization. Design the to-be workflow one stage ahead of current practice, not three.
+- **Kuaishou L1/L2/L3 dual-path**: L1 AI assists, L2 human-AI collaborate, L3 AI runs end to end. Only design for L3 when task boundaries are clear, risk is controllable, and error tolerance is high.
+- **Two inequalities**: using AI tools ≠ individual productivity; individual productivity ≠ organizational productivity. If the client is stuck at the second inequality, the redesign target is handoffs, decision rights, and review capacity, not individual tooling.
+
 ## Knowledge Base
+
+The knowledge base lives at `knowledge-base/` in the estack repository root. If it is not present (standalone install), work from the Maturity Anchors above and note the full knowledge base is at <https://github.com/tuoyiwen/estack>.
 
 - Read `knowledge-base/core/workflow-patterns.md` first: maturity ladders (Block six-stage, Kuaishou L1/L2/L3 dual-path), three-layer restructuring (information/process/organization), align-upfront-freeze-then-delegate, delivery/guardian separation, and the AIGC pipeline pattern.
 - Use `knowledge-base/references/benchmark-cases.md` to ground the diagnosis in real transformations before proposing the to-be design.
 
 ## Guardrails
 
+- Write the blueprint and SOP in the user's working language; keep pattern names in English.
 - Do not merely insert AI into the old workflow. Redesign the sequence, artifacts, and decision rights.
 - Do not automate evaluation and approval when strategic, ethical, customer, or legal commitments are involved.
 - Do not skip learning capture. AI-native workflows should improve from repeated use.
+
+## Next Skill
+
+Once the to-be blueprint is agreed, run `$e-innovation-pilot` to test it in a bounded experiment.

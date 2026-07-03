@@ -1,6 +1,6 @@
 ---
 name: estack
-description: Enterprise AI-Native Innovation Stack router for enterprise AI adoption, AI transformation, and AI-native innovation work. Use when the user asks where to start, which estack skill to use, how to sequence the six core skills, or how to turn human-AI collaboration into enterprise-ready innovation workflows, pilots, metrics, and governance.
+description: Enterprise AI-Native Innovation Stack router for enterprise AI adoption, AI transformation, and AI-native innovation work. Use when the user asks where to start, which estack skill to use, how to sequence the six core skills, or how to turn human-AI collaboration into enterprise-ready innovation workflows, pilots, metrics, and governance. Also triggers on Chinese requests about 企业AI转型, AI落地, 人机协作, AI-native 流程改造.
 ---
 
 # Estack
@@ -25,6 +25,8 @@ Route the user to one or two skills based on the real task:
 | "What rules, risk controls, and approvals do we need?" | `$e-ai-governance` |
 
 ## Knowledge Base Routing
+
+The knowledge base lives at `knowledge-base/` in the estack repository root, next to `skills/`. If it is not present (skill installed standalone without the repo), skip the reads below, work from the inline essentials in each skill, and tell the user the full knowledge base is at <https://github.com/tuoyiwen/estack>.
 
 Before producing output, read the smallest useful layer of `knowledge-base/`. Open `references/` only when the task needs cases, mechanisms, or evidence workflows.
 
@@ -75,6 +77,7 @@ When acting as the router, produce:
 
 ## Guardrails
 
+- Write all artifacts in the user's working language (Chinese enterprise users get Chinese deliverables); keep skill names and pattern names in English.
 - Do not over-index on tools, vendors, or model features.
 - Do not call a process "AI-native" unless roles, sequence, authority, validation, and escalation are specified.
 - Do not hide human judgment. Make explicit where humans define problems, interpret context, evaluate novelty/usefulness, make commitments, or take accountability.

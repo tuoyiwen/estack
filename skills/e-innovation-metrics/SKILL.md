@@ -1,6 +1,6 @@
 ---
 name: e-innovation-metrics
-description: Define metrics for enterprise AI innovation outcomes and adoption effects. Use when the user needs to measure novelty, usefulness, quality, diversity, cycle time, adoption, AI contribution, human review, ROI, risk, or scale readiness for AI-native innovation workflows.
+description: Define metrics for enterprise AI innovation outcomes and adoption effects. Use when the user needs to measure novelty, usefulness, quality, diversity, cycle time, adoption, AI contribution, human review, ROI, risk, or scale readiness for AI-native innovation workflows. Also triggers on Chinese requests about AI效果怎么衡量, 指标体系, 怎么证明AI有用.
 ---
 
 # E-Innovation Metrics
@@ -53,14 +53,28 @@ Then produce:
 
 State what evidence would justify scaling, iterating, or stopping the workflow.
 
+## Measurement Pitfalls
+
+Check these before proposing any dashboard, with or without the knowledge base:
+
+- Adoption rate is not a delivery outcome. High tool usage with unchanged delivery is the default failure mode, not a success signal.
+- Individual and organizational metrics must be separated. Individual productivity gains do not aggregate automatically; handoffs and review capacity absorb them.
+- A measurement baseline must exist before AI metrics mean anything. If the client cannot measure the current process, the first metric task is the baseline, not the AI dashboard.
+
 ## Knowledge Base
 
+The knowledge base lives at `knowledge-base/` in the estack repository root. If it is not present (standalone install), work from the layers and pitfalls in this file and note the full knowledge base is at <https://github.com/tuoyiwen/estack>.
+
 - Read `knowledge-base/core/metrics-and-rubrics.md` first: the seven-layer metrics stack, rubrics, AI maturity metrics (L1/L2/L3 share), collaboration friction metrics, and the minimum pilot dashboard.
-- Apply its Measurement Pitfalls before proposing any dashboard: adoption rate is not a delivery outcome; individual and organizational metrics must be separated; a measurement baseline must exist before AI metrics mean anything.
 
 ## Guardrails
 
+- Write the dashboard spec and rubrics in the user's working language; keep metric layer names in English.
 - Do not reduce innovation value to time saved.
 - Do not claim causal impact without a comparison or baseline.
 - Do not use vague "quality improved" claims without a scoring rubric or artifact review.
 - Do not ignore rejected AI outputs; rejection reasons often reveal where the workflow needs redesign.
+
+## Next Skill
+
+If the metrics reveal risk exposure (compliance incidents, review gaps, unclear accountability), run `$e-ai-governance` before scaling.

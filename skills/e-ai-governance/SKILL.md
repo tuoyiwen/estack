@@ -1,6 +1,6 @@
 ---
 name: e-ai-governance
-description: Design practical AI governance for enterprise innovation and human-AI workflows. Use when the user needs risk classification, data rules, review requirements, human accountability, audit trails, approval flows, allowed/prohibited uses, or governance boundaries for AI adoption.
+description: Design practical AI governance for enterprise innovation and human-AI workflows. Use when the user needs risk classification, data rules, review requirements, human accountability, audit trails, approval flows, allowed/prohibited uses, or governance boundaries for AI adoption. Also triggers on Chinese requests about AI使用规范, 风险边界, AI治理, 数据安全边界.
 ---
 
 # E-AI Governance
@@ -55,7 +55,18 @@ Check for:
 - unclear ownership of AI-assisted concepts
 - over-automation of strategic judgment
 
+## Core Controls
+
+Apply these even without the knowledge base:
+
+- **Manager load control**: any rule that adds human review must name who reviews, how much time it takes, and where that time comes from. Unbudgeted review becomes hidden middle-manager load.
+- **Blast-radius control**: scope what an AI action can affect before granting authority; wider autonomy requires narrower blast radius or stronger rollback.
+- **Verification-at-scale control**: when AI output volume exceeds review capacity, add automated pre-checks or sampling rules instead of pretending full human review happens.
+- **Source and citation control**: externally facing claims produced with AI need a source, a date, and a named human owner.
+
 ## Knowledge Base
+
+The knowledge base lives at `knowledge-base/` in the estack repository root. If it is not present (standalone install), work from the Core Controls above and note the full knowledge base is at <https://github.com/tuoyiwen/estack>.
 
 - Read `knowledge-base/core/governance-controls.md` first: middle-manager load controls, review bottleneck rules, verification-at-scale and blast-radius controls, web source and citation rules.
 - For evidence-dependent outputs, apply the source quality rubric and citation log rules from `knowledge-base/references/web-search-evidence-workflows.md`.
@@ -63,7 +74,12 @@ Check for:
 
 ## Guardrails
 
+- Write the governance matrix and employee-facing rules in the user's working language; keep control names in English.
 - Do not write policy as if all AI use is equally risky.
 - Do not bury employees in legal language.
 - Do not let governance become a blocker without alternative safe paths.
 - Always connect governance rules to concrete workflow actions.
+
+## Next Skill
+
+With boundaries set, return to `$e-innovation-pilot` to run or scale the pilot inside them.
