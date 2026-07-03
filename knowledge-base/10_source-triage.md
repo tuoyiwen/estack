@@ -1,0 +1,200 @@
+---
+project: estack
+type: source-triage
+status: active
+created: 2026-07-03
+---
+
+# Source Triage
+
+用于暂存和判断外部链接应该进入 knowledge-base 的哪一类。原则：先判断资料能帮助哪个 skill 做决策，再决定是否进入正式知识文件。
+
+## 2026-07-03
+
+### 1. 微信文章：迈向 AI Native：技术团队的范式跃迁与组织进化
+
+- Source: https://mp.weixin.qq.com/s/xtTD12A9KNEbROfNwHDh6Q
+- Source type: 企业/技术团队 AI Native 转型文章
+- Primary placement: `09_benchmark-cases.md`
+- Secondary placement: `03_ai-native-workflow-patterns.md`
+- Possible reference from skills: `$estack`, `$e-innovation-workflow`, `$e-innovation-pilot`
+
+#### 为什么这样放
+
+这篇文章最适合先作为 **benchmark case**，因为它提供的是一个组织或技术团队迈向 AI Native 的转型叙事，而不是单个可复用的 workflow template。
+
+它也可以二次抽取到 `03_ai-native-workflow-patterns.md`，但前提是读完正文后能提炼出具体流程变化，例如：
+
+- 技术团队的任务分解方式如何变化
+- agent 如何进入研发/协作流程
+- 原有组织边界如何被重构
+- 新的协作节奏、交付物、review 机制是什么
+
+#### 当前用途
+
+先作为 estack README 或 demo 的外部参照：说明 estack 关注的不是单点 AI 工具，而是 AI Native 带来的组织协作范式变化。
+
+#### 是否进入 P0
+
+暂不进 P0。P0 需要优先支持用户第一次试用；这篇更适合 P2 benchmark，除非正文里有非常具体的流程模板。
+
+---
+
+### 2. X 评论：组织结构限制 agent 的宏观提效
+
+- Source: https://x.com/i/status/2072938968942006613
+- Source type: 对微信文章的观点评论
+- Primary placement: `08_research-anchors.md`
+- Secondary placement: `06_governance-risk-controls.md` 或 `07_onboarding-prompts-and-user-stories.md`
+- Possible reference from skills: `$estack`, `$e-collaboration-design`, `$e-ai-governance`
+
+#### 为什么这样放
+
+这条评论的价值不是提供案例细节，而是提出一个 estack 很重要的判断框架：agent 在个人层面可能显著提效，但在组织层面会受到部门墙、流程边界和责任结构限制。
+
+这更像一个 **research / conceptual anchor**：新的 AI 生产力需要新的组织协作关系匹配。它可以帮助 estack 在设计企业方案时避免只看工具效率，而忽视组织结构。
+
+#### 可转化为 estack 判断规则
+
+- 如果一个 AI use case 需要跨部门输入、审批或交付，不能只评估模型能力，还要评估组织边界。
+- 如果 agent 的输出需要跨多个部门被采纳，必须设计 handoff、decision owner、review cadence 和 escalation path。
+- 如果企业只在个人层面试用 AI，不能直接推断组织层面的 AI transformation 成功。
+
+#### 是否进入 P0
+
+不直接进 P0，但它应该作为 `$estack` router 和 `$e-collaboration-design` 的底层判断原则：企业 AI adoption 的瓶颈常常不是技术，而是组织协作结构。
+
+## 归类结论
+
+| Source | 主放置位置 | 次放置位置 | 处理优先级 |
+|---|---|---|---|
+| 微信文章：AI Native 技术团队转型 | `09_benchmark-cases.md` | `03_ai-native-workflow-patterns.md` | P2，等读正文后提炼 |
+| X 评论：部门墙限制 agent 提效 | `08_research-anchors.md` | `06_governance-risk-controls.md` / `07_onboarding-prompts-and-user-stories.md` | P1，转成判断规则 |
+
+## 下一步
+
+- [ ] 读微信文章正文，判断是否能提炼出 workflow pattern。
+- [ ] 把 X 评论转化为 `research-anchors` 中的“组织边界/部门墙”条目。
+- [ ] 如果微信文章包含具体流程图或方法论，再进入 `03_ai-native-workflow-patterns.md`。
+
+### 原文归档记录
+
+- Archived file: [[original-sources/2026-07-03_迈向AI-Native_技术团队的范式跃迁与组织进化_原文|迈向AI Native：技术团队的范式跃迁与组织进化（原文）]]
+- Status: 原文已取得，下一步可以从原文中抽取 benchmark case 和 workflow pattern。
+- Extraction target:
+  - `09_benchmark-cases.md`: 快手技术团队 AI Native 转型案例
+  - `03_ai-native-workflow-patterns.md`: 信息层/流程层/组织层三层重构；L1/L2/L3 研发范式；直播礼物案例
+  - `08_research-anchors.md`: 个体效率与组织效能鸿沟；新生产力需要新协作关系
+
+### 3. InfoQ presentation: Fine Tuning the Enterprise: Reinforcement Learning in Practice
+
+- Source: https://www.infoq.com/presentations/rft-openai-model/
+- Source type: 技术能力 / 模型适配 / enterprise fine-tuning presentation
+- Primary placement: `11_technical-enablers-and-model-capabilities.md`
+- Secondary placement: `06_governance-risk-controls.md`
+- Possible reference from skills: `$e-ai-governance`; future `$e-data-knowledge` / `$e-tooling-vendor`
+
+#### 为什么这样放
+
+这个链接不是一个 AI-native workflow case，也不是人机协作配置 pattern。它更像是企业模型能力建设的技术参照：当企业需要把通用模型适配到特定领域任务时，可能涉及 reinforcement learning / reinforcement fine-tuning、评估、数据、奖励信号和治理边界。
+
+因此它不应进入 P0 的 use case、collaboration pattern 或 workflow pattern。它应该放在 technical enablers 中，作为后期扩展 estack 技术能力判断的材料。
+
+#### 可转化为 estack 判断规则
+
+- 如果企业场景需要稳定的领域推理能力，而通用模型表现不足，才考虑 fine-tuning / RFT 等模型适配路线。
+- 如果没有高质量任务样本、评估集、奖励信号或安全边界，不应轻易推荐强化微调。
+- estack 当前 v0.2 不把模型训练能力放在主线；它只作为可行性、治理与后期路线判断。
+
+#### 是否进入 P0
+
+不进入 P0。它是 P2 technical enabler。当前只做 source triage，不把它写进 README 或 onboarding。
+
+---
+
+### 4. HBR / BestBlogs: AI 普及正在压垮中层管理者
+
+- Source: https://www.bestblogs.dev/article/e44268ef
+- Original source noted by page: HBR, `AI Adoption Is Overloading Your Middle Managers`
+- Source type: 企业 AI adoption 的组织承压 / 中层管理风险
+- Primary placement: `06_governance-risk-controls.md`
+- Secondary placement: `08_research-anchors.md`；可后续影响 `05_metrics-and-rubrics.md`、`07_onboarding-prompts-and-user-stories.md`
+- Possible reference from skills: `$estack`, `$e-collaboration-design`, `$e-innovation-pilot`, `$e-ai-governance`, `$e-innovation-metrics`
+
+#### 为什么这样放
+
+这篇不是模型能力材料，也不是单个 AI-native workflow case。它的核心价值在于指出：AI adoption 的成功可能会把隐性工作集中压到中层管理者身上。初级员工和高级合伙人/高管都可能因 AI 得到效率提升，但中层需要承担更多 AI 输出验证、质量控制、团队指导、标准解释和知识沉淀工作。
+
+因此它应主放在 governance / risk controls：estack 在设计企业试点时，不能默认中层管理者会自然吸收所有 review、coaching 和 coordination 成本。
+
+#### 可转化为 estack 判断规则
+
+- 如果 AI pilot 需要经理持续检查 AI 输出，必须显式估算 manager review capacity。
+- 如果交付周期没有调整，却增加了 AI 学习、复核和指导职责，这不是 adoption 成功，而是组织负荷转移。
+- 如果激励机制只奖励个人产出，不奖励知识共享和团队方法沉淀，AI adoption 很容易停留在个体效率层面。
+- 如果领导层只提出 AI 战略目标，却不参与标准制定和支持系统建设，中层会变成事实上的解释者和兜底者。
+- Pilot charter 应加入中层负荷检查：review owner、time budget、escalation path、training support、knowledge-sharing metric。
+
+#### 是否进入 P0
+
+不直接进入 P0 门面，但应作为 P1 governance anchor。它非常适合转化成 `$e-innovation-pilot` 和 `$e-ai-governance` 的检查问题：这个 AI 方案会不会把组织成本悄悄压给中层？
+
+---
+
+### 5. BestBlogs video: Block 如何让 3500 名工程师走向智能体协作
+
+- Source: https://www.bestblogs.dev/video/ff1b45c
+- Title: 构建自主工程组织：Block 如何让 3500 名工程师走向智能体协作
+- Source type: 企业工程组织 AI transformation benchmark / agentic workflow case
+- Primary placement: `09_benchmark-cases.md`
+- Secondary placement: `03_ai-native-workflow-patterns.md`
+- Additional relevance: `06_governance-risk-controls.md`，因为页面摘要明确提到人员影响尚未解决
+- Possible reference from skills: `$estack`, `$e-innovation-workflow`, `$e-collaboration-design`, `$e-innovation-pilot`, `$e-ai-governance`
+
+#### 为什么这样放
+
+这条视频不是泛泛 AI 新闻，也不是纯技术能力材料。页面摘要显示，它讲的是 Block 如何让 3500 名工程师从广泛使用 AI 工具，走向自主委派任务和智能体协作，并涉及成熟度模型、精英推动者计划、AI 就绪代码仓库、原生工作流集成和多智能体编排。
+
+因此它最适合作为 benchmark case：企业级工程组织如何从“AI tools adoption”推进到“agentic collaboration / autonomous engineering organization”。其中提到的成熟度模型和工作流集成，也可以抽成 `03_ai-native-workflow-patterns.md` 的模式。
+
+#### 可转化为 estack 判断规则
+
+- 企业 AI adoption 不应只衡量工具使用率，而要判断组织是否进入“可委派任务”的 agentic workflow。
+- 从工具使用到智能体协作，需要成熟度模型，而不是一次性 rollout。
+- 工程组织要进入 agentic workflow，代码仓库、文档、测试、权限、CI/CD 和开发流程都需要 AI-ready。
+- 推广机制不能只靠培训，应设计 internal champions / elite enablers，帮助团队把 AI 嵌入原生工作流。
+- 多智能体编排不是第一步，必须建立在任务边界清晰、repo ready、评估和人类复核机制可用的基础上。
+- 页面摘要提到人员影响尚未解决，因此 pilot 必须包含 role impact、skill shift 和 governance review。
+
+#### 是否进入 P0
+
+不直接进入 P0 onboarding 门面，但它是 P1 extraction priority。原因是它能直接支持 estack 的 demo case、workflow pattern 和 enterprise pitch：从 AI 工具普及到 AI-native / agentic engineering organization。
+
+#### 后续深化
+
+原文 / extended summary 已归档，并已补充成熟度阶段、组织角色、落地机制和治理风险。后续可继续细化指标和人员影响。
+
+## Original-source archive update: 2026-07-03
+
+用户已补充原文 / transcript，以下来源已从 source card 升级为正式原始来源归档：
+
+| Source | Local archive | Status | Knowledge extraction updated |
+|---|---|---|---|
+| HBR: AI Adoption Is Overloading Your Middle Managers | `original-sources/2026-07-03_HBR_AI-Adoption-Overloading-Middle-Managers_原文.md` | full text archived | `06_governance-risk-controls.md`, `08_research-anchors.md` |
+| InfoQ: Fine Tuning the Enterprise | `original-sources/2026-07-03_InfoQ_Fine-Tuning-the-Enterprise_transcript.md` | transcript archived | `11_technical-enablers-and-model-capabilities.md` |
+| Block: Building an Autonomous Engineering Organization | `original-sources/2026-07-03_Block_Agentic-Engineering-Organization_transcript.md` | transcript / extended summary archived | `09_benchmark-cases.md`, `03_ai-native-workflow-patterns.md`, `06_governance-risk-controls.md` |
+
+处理原则更新：以后所有进入 estack 的来源都先进 `original-sources`。有全文就全文归档；没有全文就 source card。
+
+## Official-doc triage: web search / grounding / RAG
+
+这些不是普通外部文章，而是 web search / grounding / retrieval 能力的官方文档参照。它们支持新增 `12_web-search-and-research-workflows.md`。
+
+| Source | Role in estack | Placement |
+|---|---|---|
+| OpenAI Web Search tool | web-grounded output and citations | `12_web-search-and-research-workflows.md` |
+| Anthropic Claude Web Search tool | domain controls, dynamic filtering, admin governance | `12_web-search-and-research-workflows.md` / `06_governance-risk-controls.md` |
+| Google Grounding with Google Search | public web grounding, search suggestions, geo customization | `12_web-search-and-research-workflows.md` |
+| Microsoft Azure AI Search RAG | boundary between public web search and internal proprietary retrieval | `12_web-search-and-research-workflows.md` / `11_technical-enablers-and-model-capabilities.md` |
+
+核心结论：estack 需要把 web search 定义为 evidence acquisition and grounding layer，而不是简单搜索功能。

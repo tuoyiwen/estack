@@ -32,6 +32,8 @@ Internal logic:
 estack/
 ├── README.md
 ├── VERSION
+├── knowledge-base/
+├── project-notes/
 └── skills/
     ├── estack/
     ├── e-innovation-map/
@@ -46,6 +48,10 @@ Each skill folder contains:
 
 - `SKILL.md`: the agent-facing workflow and output instructions
 - `agents/openai.yaml`: UI metadata for skill lists and default prompts
+
+`knowledge-base/` contains the judgment library behind the skills: enterprise use cases, human-AI collaboration patterns, workflow patterns, output templates, metrics, governance controls, benchmark cases, technical enablers, and web-search/evidence workflows.
+
+`project-notes/` contains planning notes for how estack is being developed.
 
 ## Installation
 
@@ -72,6 +78,23 @@ Use "innovation" in outward-facing titles and enterprise communication. Use "cre
 
 This keeps the product credible for enterprises while preserving the research mechanism underneath.
 
-## v0.1 Boundary
+## Knowledge Base
 
-This version deliberately starts with six core skills plus a router. Later versions can add vendor selection, data/knowledge readiness, training, benchmarking, and transformation office reporting after the core human-AI innovation workflow is proven.
+The current knowledge base includes:
+
+- enterprise AI innovation use cases
+- human-AI collaboration patterns
+- AI-native workflow patterns
+- output templates and examples
+- metrics and rubrics
+- governance and risk controls
+- onboarding prompts and user stories
+- research anchors
+- benchmark cases
+- technical enablers and model capabilities
+- web search and evidence workflows
+- original source archive
+
+## v0.2 Boundary
+
+This version adds a practical knowledge base behind the six core skills and router. The next step is to connect the skills more explicitly to the knowledge-base categories and add completed enterprise examples.
