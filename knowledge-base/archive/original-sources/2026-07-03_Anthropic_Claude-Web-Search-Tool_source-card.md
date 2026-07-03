@@ -6,8 +6,8 @@ created: 2026-07-03
 source_url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool
 source_kind: official-documentation
 source_name: Anthropic Claude Web Search tool
-primary_placement: ../12_web-search-and-research-workflows.md
-secondary_placement: ../06_governance-risk-controls.md
+primary_placement: ../../references/web-search-evidence-workflows.md
+secondary_placement: ../../core/governance-controls.md
 confidence: direct-official-doc
 ---
 

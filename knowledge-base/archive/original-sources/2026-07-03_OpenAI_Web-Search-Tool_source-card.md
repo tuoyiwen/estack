@@ -6,8 +6,8 @@ created: 2026-07-03
 source_url: https://developers.openai.com/api/docs/guides/tools-web-search
 source_kind: official-documentation
 source_name: OpenAI Web Search tool
-primary_placement: ../12_web-search-and-research-workflows.md
-secondary_placement: ../11_technical-enablers-and-model-capabilities.md
+primary_placement: ../../references/web-search-evidence-workflows.md
+secondary_placement: ../../references/technical-enablers.md
 confidence: direct-official-doc
 ---
 

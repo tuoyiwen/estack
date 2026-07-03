@@ -33,6 +33,10 @@ estack/
 ├── README.md
 ├── VERSION
 ├── knowledge-base/
+│   ├── README.md
+│   ├── core/
+│   ├── references/
+│   └── archive/
 ├── project-notes/
 └── skills/
     ├── estack/
@@ -49,7 +53,7 @@ Each skill folder contains:
 - `SKILL.md`: the agent-facing workflow and output instructions
 - `agents/openai.yaml`: UI metadata for skill lists and default prompts
 
-`knowledge-base/` contains the judgment library behind the skills: enterprise use cases, human-AI collaboration patterns, workflow patterns, output templates, metrics, governance controls, benchmark cases, technical enablers, and web-search/evidence workflows.
+`knowledge-base/` contains the judgment library behind the skills. It is split into `core/` for default skill context, `references/` for cases and evidence, and `archive/` for original sources and dated triage notes.
 
 `project-notes/` contains planning notes for how estack is being developed.
 
@@ -80,20 +84,11 @@ This keeps the product credible for enterprises while preserving the research me
 
 ## Knowledge Base
 
-The current knowledge base includes:
+The current knowledge base is intentionally compact:
 
-- enterprise AI innovation use cases
-- human-AI collaboration patterns
-- AI-native workflow patterns
-- output templates and examples
-- metrics and rubrics
-- governance and risk controls
-- onboarding prompts and user stories
-- research anchors
-- benchmark cases
-- technical enablers and model capabilities
-- web search and evidence workflows
-- original source archive
+- `knowledge-base/core/` holds the materials skills should read first: use cases, collaboration patterns, workflow patterns, output templates, metrics, governance controls, and onboarding prompts.
+- `knowledge-base/references/` holds supporting research anchors, benchmark cases, technical enablers, and web-search/evidence workflows.
+- `knowledge-base/archive/` holds source triage notes and original source material. It is evidence storage, not default skill context.
 
 ## v0.2 Boundary
 

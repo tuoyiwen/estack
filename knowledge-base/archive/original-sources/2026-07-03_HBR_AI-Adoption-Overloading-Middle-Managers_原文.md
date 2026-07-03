@@ -8,8 +8,8 @@ source_url: https://www.bestblogs.dev/article/e44268ef
 original_source_url: https://hbr.org/2026/06/ai-adoption-is-overloading-your-middle-managers
 source_kind: article
 source_name: HBR / BestBlogs
-primary_placement: ../06_governance-risk-controls.md
-secondary_placement: ../08_research-anchors.md
+primary_placement: ../../core/governance-controls.md
+secondary_placement: ../../references/research-anchors.md
 relevant_skills:
   - $e-innovation-pilot
   - $e-ai-governance
@@ -26,9 +26,9 @@ confidence: full-text-provided-by-user
 
 ## estack Placement
 
-- 主放：`06_governance-risk-controls.md`
-- 次放：`08_research-anchors.md`
-- 可影响：`05_metrics-and-rubrics.md`、`07_onboarding-prompts-and-user-stories.md`
+- 主放：`core/governance-controls.md`
+- 次放：`references/research-anchors.md`
+- 可影响：`core/metrics-and-rubrics.md`、`core/onboarding-prompts.md`
 
 ## Extraction Notes
 

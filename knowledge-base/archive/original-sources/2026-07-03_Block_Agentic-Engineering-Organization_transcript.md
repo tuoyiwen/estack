@@ -7,9 +7,9 @@ updated: 2026-07-03
 source_url: https://www.bestblogs.dev/video/ff1b45c
 source_kind: video-transcript
 source_name: BestBlogs / AI Engineer
-primary_placement: ../09_benchmark-cases.md
-secondary_placement: ../03_ai-native-workflow-patterns.md
-additional_placement: ../06_governance-risk-controls.md
+primary_placement: ../../references/benchmark-cases.md
+secondary_placement: ../../core/workflow-patterns.md
+additional_placement: ../../core/governance-controls.md
 relevant_skills:
   - $e-innovation-workflow
   - $e-collaboration-design
@@ -26,9 +26,9 @@ Transcript / extended summary 已归档。该文件由用户上传/提供的原�
 
 ## estack Placement
 
-- 主放：`09_benchmark-cases.md`
-- 次放：`03_ai-native-workflow-patterns.md`
-- 治理关联：`06_governance-risk-controls.md`
+- 主放：`references/benchmark-cases.md`
+- 次放：`core/workflow-patterns.md`
+- 治理关联：`core/governance-controls.md`
 
 ## Extraction Notes
 

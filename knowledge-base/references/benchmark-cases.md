@@ -45,7 +45,7 @@ created: 2026-07-03
 
 ## Full-text extraction: Block agentic engineering maturity case
 
-Source: [[original-sources/2026-07-03_Block_Agentic-Engineering-Organization_transcript|Block transcript 归档]]
+Source: [[../archive/original-sources/2026-07-03_Block_Agentic-Engineering-Organization_transcript|Block transcript 归档]]
 
 ### 核心案例判断
 

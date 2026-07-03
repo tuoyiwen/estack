@@ -20,7 +20,7 @@ updated: 2026-07-03
 | 咨询顾问 / 转型负责人 | 想给客户做诊断和路线图 | Workflow Blueprint + Pilot Charter + Governance Matrix | `$estack` -> `$e-innovation-workflow` |
 | 产品/市场负责人 | 想把 AI 用在创新流程里 | Concept Brief + Evidence Matrix + Creative Option Set | `$e-innovation-map` + `$e-collaboration-design` |
 | 工程/平台负责人 | 想从 AI coding tool 走向 agentic workflow | Maturity Assessment + AI-ready Repository Checklist | `$e-innovation-workflow` |
-| 研究/情报团队 | 想用 web search 支持决策 | Web Research Brief + Evidence Matrix + Citation Log | `$e-innovation-map` + `12_web-search` |
+| 研究/情报团队 | 想用 web search 支持决策 | Web Research Brief + Evidence Matrix + Citation Log | `$e-innovation-map` + `references/web-search-evidence-workflows.md` |
 | 研究者 | 想连接论文机制和企业实践 | Human-AI configuration map + metrics design | `$e-collaboration-design` + `$e-innovation-metrics` |
 
 ## Router Prompt

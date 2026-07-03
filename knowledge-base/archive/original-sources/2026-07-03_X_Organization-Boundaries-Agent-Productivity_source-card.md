@@ -5,8 +5,8 @@ status: metadata-only
 created: 2026-07-03
 source_url: https://x.com/i/status/2072938968942006613
 source_kind: social-commentary
-primary_placement: ../08_research-anchors.md
-secondary_placement: ../06_governance-risk-controls.md
+primary_placement: ../../references/research-anchors.md
+secondary_placement: ../../core/governance-controls.md
 confidence: partial-visible-text
 ---
 
@@ -22,8 +22,8 @@ confidence: partial-visible-text
 
 ## estack 归类
 
-- 主放：`08_research-anchors.md`
-- 次放：`06_governance-risk-controls.md` / `07_onboarding-prompts-and-user-stories.md`
+- 主放：`references/research-anchors.md`
+- 次放：`core/governance-controls.md` / `core/onboarding-prompts.md`
 - 对应 skill：`$estack`、`$e-collaboration-design`、`$e-ai-governance`
 
 ## 可复用判断

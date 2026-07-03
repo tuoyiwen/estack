@@ -39,9 +39,9 @@ created: 2026-07-03
 
 Sources:
 
-- [[original-sources/2026-07-03_HBR_AI-Adoption-Overloading-Middle-Managers_原文|HBR: middle-manager load]]
-- [[original-sources/2026-07-03_X_Organization-Boundaries-Agent-Productivity_source-card|X: organization boundaries]]
-- [[original-sources/2026-07-03_Block_Agentic-Engineering-Organization_transcript|Block: agentic engineering organization]]
+- [[../archive/original-sources/2026-07-03_HBR_AI-Adoption-Overloading-Middle-Managers_原文|HBR: middle-manager load]]
+- [[../archive/original-sources/2026-07-03_X_Organization-Boundaries-Agent-Productivity_source-card|X: organization boundaries]]
+- [[../archive/original-sources/2026-07-03_Block_Agentic-Engineering-Organization_transcript|Block: agentic engineering organization]]
 
 ### 机制定义
 

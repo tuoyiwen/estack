@@ -98,14 +98,14 @@ created: 2026-07-03
 
 ## 参考来源
 
-- [[original-sources/2026-07-03_OpenAI_Web-Search-Tool_source-card|OpenAI Web Search tool]]
-- [[original-sources/2026-07-03_Anthropic_Claude-Web-Search-Tool_source-card|Anthropic Claude Web Search tool]]
-- [[original-sources/2026-07-03_Google_Grounding-With-Google-Search_source-card|Google Grounding with Google Search]]
-- [[original-sources/2026-07-03_Microsoft_Azure-AI-Search-RAG_source-card|Microsoft Azure AI Search RAG]]
+- [[../archive/original-sources/2026-07-03_OpenAI_Web-Search-Tool_source-card|OpenAI Web Search tool]]
+- [[../archive/original-sources/2026-07-03_Anthropic_Claude-Web-Search-Tool_source-card|Anthropic Claude Web Search tool]]
+- [[../archive/original-sources/2026-07-03_Google_Grounding-With-Google-Search_source-card|Google Grounding with Google Search]]
+- [[../archive/original-sources/2026-07-03_Microsoft_Azure-AI-Search-RAG_source-card|Microsoft Azure AI Search RAG]]
 
 ## 下一步
 
-- 把 Web Research Brief 放进 `04_output-templates-and-examples.md`。
-- 把 evidence quality 指标放进 `05_metrics-and-rubrics.md`。
+- 把 Web Research Brief 放进 `core/output-templates.md`。
+- 把 evidence quality 指标放进 `core/metrics-and-rubrics.md`。
 - 把 search-first collaboration pattern 放进 `02_human-ai-collaboration-patterns.md`。
 - 在 `$e-innovation-map` 中加入：先做 external evidence scan，再生成 use case portfolio。

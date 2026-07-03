@@ -19,7 +19,7 @@ created: 2026-07-03
 
 ## Full-text extraction: Agent RFT as enterprise model adaptation route
 
-Source: [[original-sources/2026-07-03_InfoQ_Fine-Tuning-the-Enterprise_transcript|InfoQ transcript 归档]]
+Source: [[../archive/original-sources/2026-07-03_InfoQ_Fine-Tuning-the-Enterprise_transcript|InfoQ transcript 归档]]
 
 ### 什么时候考虑 Agent RFT
 

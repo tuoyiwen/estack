@@ -6,8 +6,8 @@ created: 2026-07-03
 source_url: https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview
 source_kind: official-documentation
 source_name: Microsoft Azure AI Search RAG
-primary_placement: ../12_web-search-and-research-workflows.md
-secondary_placement: ../11_technical-enablers-and-model-capabilities.md
+primary_placement: ../../references/web-search-evidence-workflows.md
+secondary_placement: ../../references/technical-enablers.md
 confidence: direct-official-doc
 ---
 
