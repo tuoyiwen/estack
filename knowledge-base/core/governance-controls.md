@@ -118,6 +118,45 @@ Source: [[../archive/original-sources/2026-07-03_迈向AI-Native_技术团队的
 - 交付与守护分离时，守护层的标准、门禁和 owner 必须显式定义，不能默认原团队兼任。
 - Pilot 的 role impact review 增加两项：`taste_and_judgment_visibility`（看不见的判断价值是否有位置和认可）、`junior_growth_space`（是否给年轻成员留了试错和生长空间）。
 
+## Token budget governance and cost discipline
+
+Source: [[../archive/original-sources/2026-07-05_腾讯研究院_Token不经济_原文|腾讯研究院 Token 不经济 原文归档]]
+
+### 风险信号
+
+- Token 消耗与可验证产出不成比例（先例：微软收回内部 Claude Code 许可；Uber 4 个月耗尽全年 AI 编程预算；Meta 撤下 Tokenmaxxing 排行榜）。
+- 组织激励"用 AI 最多"而不是"用最少 token 完成最多工作"，无产出消耗被变相鼓励。
+- 没有成本归因：不知道 token 花在哪个团队、哪类任务、哪个环节（生成 vs 协调 vs 纠偏）。
+- 多 Agent 系统没有预算上限和停止条件，沟通税与熵税可占账单一半以上。
+- 闭源模型分词器更新导致计费基准漂移（先例：单次分词器更换实测成本膨胀 30-50%），使用方毫无察觉。
+- 技术平权风险：非技术用户不理解 Agent 成本动力学，只见账单增长，被置于结构性劣势。
+
+### 控制规则
+
+- 像管理云资源一样管理 token：预算池、配额、审批流程、团队账单。配给制不与创新对立，会倒逼更高效的 Agent 设计。
+- 每个 pilot 的 charter 写明 token 预算上限和成本归因方式；没有计量就没有管理。
+- 多 Agent 系统设硬性预算约束 + 主持人架构：每个子任务有 token 上限，主持人 Agent 监控全局消耗，预算耗尽前强制终止无效循环。
+- 考核导向从消耗量转向 ROI：用了多少 token、产生多少可验证产出、造成多少返工。
+- 订阅的闭源模型发生分词器/计费变更时，重测基准 prompt 的 token 计数，纳入成本监控。
+
+## Autonomous loop (L4) risks and controls
+
+Source: [[../archive/original-sources/2026-07-05_腾讯云开发者_Loop-Engineering四层工程进化论_原文|Loop Engineering 综述归档]]；一手出处见 [[../archive/original-sources/2026-07-05_AddyOsmani_Loop-Engineering_source-card|Osmani source card]]
+
+### 三个 L4 特有风险
+
+1. **成本可预测性下降**：单任务成本可预算，自主循环是组合爆炸（automation 频率 × sub-agent 数量 × 各自迭代轮数）。设计不当的 Loop 可以一晚烧掉一个月预算。
+2. **可靠性新风险面**：triage 逻辑错误让高优先级问题被忽略；sub-agent 依赖死锁；外部 state 损坏导致任务重复或遗漏；maker 和 checker 用同一模型时系统性偏差不被捕获。
+3. **理解力负债与认知投降**：自主系统越快产出人没写过的东西，人的理解缺口越大且不报警；系统顺畅运行时人倾向停止审查和质疑。
+
+### 控制规则
+
+- **Anti-pattern：跳过可靠执行层直接上自主循环。** 单任务还不可靠时加自动化，只会把不可靠放大到系统级，净效率为负。试点自主循环的前提是：单任务可半自主执行、失败模式已沉淀为规则、review 否决率已稳定走低。
+- 最小 Loop 起步：一个场景、一个 automation、一对 maker-checker、一个 state 文件、严格 token 上限。
+- 人工 review 从高频开始逐步降频（每次 -> 每天 -> 每周抽查），否决率低于 10% 且稳定运行 4 周以上才扩场景。
+- 定期 walkthrough 自主系统的产出，显式对抗理解力负债；高风险变更保留人类最终验收。
+- maker 与 checker 尽量使用不同指令甚至不同模型。
+
 ## Web search, citation, and source-risk controls
 
 Source: [[../references/web-search-evidence-workflows|Web Search and Research Workflows]]

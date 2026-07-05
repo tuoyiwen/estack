@@ -58,6 +58,19 @@ updated: 2026-07-03
 - 快手案例：[[../references/benchmark-cases#Kuaishou main-site: 千人工程团队的 AI Native 三层重构]]
 - HBR 抽取：[[governance-controls#Full-text extraction: middle-manager load as governance risk]]
 
+## Handoff Artifact 选择规则
+
+Source: Codex 访谈（见下方案例出处）。实现变廉价后，选对交接物媒介比"要不要写文档"更重要：
+
+- 求模糊领域的产品/问题清晰度 -> 文档（PRD 没死，死的是当仪式走的 PRD）。
+- 求交互模式/方案的压力测试 -> 原型。
+- 警惕过度锚定：探索性原型若看起来 production-ready，会被误当可发布产品。交接时显式声明"处在流程哪个阶段"。
+- 工程师的对称陷阱：实现丰裕时容易产出大量不值得读的文档；文档只在服务清晰度时才是对的媒介。
+
+案例出处补充：
+
+- Codex 访谈：[[../archive/original-sources/2026-07-05_Lennys-Podcast_Codex-Andrew-Ambrosino_transcript]]
+
 ## Collaboration Configuration Card
 
 | 字段 | 内容 |

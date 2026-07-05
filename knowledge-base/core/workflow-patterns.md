@@ -176,3 +176,55 @@ Source: [[../archive/original-sources/2026-07-03_迈向AI-Native_技术团队的
 ### estack 使用方式
 
 这是 `$e-innovation-workflow` 最好的非工程 demo：展示“把业务流程拆解后以 AI 为中心重新设计”，而不是在旧流程的每个环节里塞 AI。适用于营销创意、内容生产、运营物料等结构相似的场景。
+
+## Pattern: 四层工程栈与逐层诊断（Prompt / Context / Harness / Loop）
+
+Source: [[../archive/original-sources/2026-07-05_腾讯云开发者_Loop-Engineering四层工程进化论_原文|Loop Engineering 综述归档]]
+
+### 模式定义
+
+Agent 工程能力分四层嵌套（外层包含内层，不替代内层）：
+
+| 层 | 解决什么 | 核心手段 | 天花板 |
+|---|---|---|---|
+| L1 Prompt | 怎么说清楚任务 | 角色设定、格式约束、CoT | 信息孤岛、无记忆、人是瓶颈 |
+| L2 Context | 模型看到什么 | RAG、MCP、历史管理 | 模型的"手"不受控，错误不会自愈 |
+| L3 Harness | 错误结构性不可重犯 | AGENTS.md、linter、test gate、observability | 仍是人触发人收尾，不能并行规模化 |
+| L4 Loop | 持续自主运转 | automation、worktree、maker-checker、外部 state | 成本组合爆炸、理解力负债 |
+
+L2 与 L3 的本质区别：L2 是基于信任的策略（给正确信息，期望做对），L3 是基于验证的策略（不信任单次输出，信任验证流程）。
+
+### 逐层诊断框架
+
+大多数生产级 Agent 故障在 Harness 层，却被误诊为 Prompt 或 Context 层，修复施加在错误层面导致症状反复。诊断顺序：
+
+1. 指令和信息本身质量差？-> L1/L2（例：RAG 检索到过期文档，修文档版本管理而不是改 prompt）。
+2. 信息正确但行为出错、同样的错反复出现？-> L3（例：模型惯性用废弃 API，加 CI detector 而不是塞更多文档）。
+3. 单任务可靠但吞吐量卡在人身上？-> L4（例：人在串行驱动 50 个积压 issue，需要 automation + 并行 sub-agent）。
+
+### 采纳路径与退出标准
+
+夯实 L1/L2（准确率 85%+ 且优化进入收益递减）-> 重点建设 L3（可半自主执行、失败模式规则化、AGENTS.md 增长放缓）-> 谨慎试点 L4（最小 Loop + 硬预算 + 高频 review 渐降频）。Anti-pattern：跳过 L3 直接 L4（详见 [[governance-controls|governance-controls]]）。
+
+### 与其他框架的映射
+
+三个框架分别回答不同问题：Block 六阶段答"组织成熟到哪一步"，快手三层重构答"组织该改什么"，四层工程栈答"工程该建什么、故障出在哪"。粗略对应：L1/L2 ≈ Block Stage 1-2 ≈ 快手 L1；L3 ≈ Stage 3 ≈ 快手 L2 的工程前提；L4 ≈ Stage 4-5 ≈ 快手 L3。行业适配：金融以 L3 为核心投入层、L4 只用于辅助任务；软件工程是 L4 原生场景；客服以 L1/L2 为核心、L4 适用有限。
+
+## Pattern: 产品流程倒置（前置降险 -> 并行探索 + 策展）
+
+Source: [[../archive/original-sources/2026-07-05_Lennys-Podcast_Codex-Andrew-Ambrosino_transcript|Codex 访谈归档]]
+
+### 模式定义
+
+旧产品流程（研究 -> 文档 -> 原型 -> 实现）的前提是实现昂贵，一切前置活动都为降低实现风险。实现变廉价后流程倒置：并行做出大量原型（同一功能可能有 90 个探索），人类判断上移到策展——评估、比较、折叠、取舍。
+
+### 关键构件
+
+- **媒介选择规则**：实现丰裕时更要选对表达媒介。求模糊领域的产品清晰度用文档（PRD 没死）；求交互模式压力测试用原型。警惕过度锚定：探索性原型看起来 production-ready，会被误当成可发布产品。
+- **流程阶段元信息**：旧世界里媒介自带阶段信号（像生产环境 = 已降险），现在信号解耦，必须显式声明"我们处在流程哪个阶段"。
+- **Build ahead of models**：把未来一两年想做的事全部原型化，判断哪些现在就绪，其余入库；每次模型跃迁换上新模型重试。"写了代码不等于该发布，它是可以对未来模型持续测试的 artifact。"同一形态可能要发布多次才成立（Operator -> Atlas -> Codex 是同一功能在不同智能水平下的重发）。
+- **模糊长期规划**：越短期计划越细；9 个月计划保持模糊，任何精度都是虚假精度。
+
+### estack 使用方式
+
+`$e-innovation-workflow` 处理产品/创新流程重设计时的第二个非工程 demo（与直播礼物互补：一个讲内容流水线，一个讲产品探索流程）。`$e-innovation-pilot` 的规划建议直接引用"短期细、长期糊"和 build-ahead 原则。

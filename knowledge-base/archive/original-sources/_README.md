@@ -29,6 +29,16 @@ updated: 2026-07-03
 | Anthropic Claude Web Search Tool | `2026-07-03_Anthropic_Claude-Web-Search-Tool_source-card.md` | official doc card | `references/web-search-evidence-workflows.md` |
 | Google Grounding with Google Search | `2026-07-03_Google_Grounding-With-Google-Search_source-card.md` | official doc card | `references/web-search-evidence-workflows.md` |
 | Microsoft Azure AI Search RAG | `2026-07-03_Microsoft_Azure-AI-Search-RAG_source-card.md` | official doc card | `references/web-search-evidence-workflows.md` |
+| 腾讯云开发者：Loop Engineering 四层工程进化论 | `2026-07-05_腾讯云开发者_Loop-Engineering四层工程进化论_原文.md` | full text archived | `core/workflow-patterns.md` / `core/governance-controls.md` |
+| Lenny's Podcast: Codex 产品工作重塑（Andrew Ambrosino） | `2026-07-05_Lennys-Podcast_Codex-Andrew-Ambrosino_transcript.md` | transcript / extended summary archived | `references/benchmark-cases.md` / `core/workflow-patterns.md` |
+| 腾讯研究院：Token 不经济 | `2026-07-05_腾讯研究院_Token不经济_原文.md` | full text archived | `core/governance-controls.md` / `core/metrics-and-rubrics.md` / `references/research-anchors.md` |
+| Mitchell Hashimoto: My AI Adoption Journey | `2026-07-05_MitchellHashimoto_My-AI-Adoption-Journey_source-card.md` | source card only | `core/workflow-patterns.md` |
+| OpenAI: Harness Engineering | `2026-07-05_OpenAI_Harness-Engineering_source-card.md` | source card only | `core/workflow-patterns.md` |
+| Addy Osmani: Loop Engineering | `2026-07-05_AddyOsmani_Loop-Engineering_source-card.md` | source card only | `core/governance-controls.md` |
+| Anthropic: Effective Context Engineering | `2026-07-05_Anthropic_Effective-Context-Engineering_source-card.md` | official doc card | `core/workflow-patterns.md` |
+| Salim et al. 2026: Tokenomics (MSR) | `2026-07-05_Salim-etal_Tokenomics-MSR_source-card.md` | paper card | `core/metrics-and-rubrics.md` |
+| Gao et al. 2026: SkillReducer | `2026-07-05_Gao-etal_SkillReducer_source-card.md` | paper card | `references/technical-enablers.md` |
+| Han et al. 2026: SWE-Skills-Bench | `2026-07-05_Han-etal_SWE-Skills-Bench_source-card.md` | paper card | `references/technical-enablers.md` / `core/metrics-and-rubrics.md` |
 
 ## 后续处理原则
 

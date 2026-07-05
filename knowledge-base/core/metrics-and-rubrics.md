@@ -92,6 +92,18 @@ updated: 2026-07-03
 | 验证与纠偏 | 验证时长 / 生成时长比；返工率 |
 | 能力边界判断 | 高估返工次数；低估漏用机会（抽样评估） |
 
+## Token ROI Metrics
+
+Source: [[../archive/original-sources/2026-07-05_腾讯研究院_Token不经济_原文|Token 不经济归档]]。核心原则：考核的不是"用 AI 最多"，而是"用最少 token 完成最多工作"。
+
+| Metric | Definition | 参考基准 / 依据 |
+|---|---|---|
+| 单位任务 token 成本 | 完成一个可验证产出所消耗的 token | 建 baseline 后追踪趋势 |
+| 无效消耗占比 | 沟通税 + 熵税（协调、重复传递、自我纠偏）占总消耗比例 | ChatDev 实测 code review 阶段占 39.5%（Salim et al. 2026） |
+| Skill 调用增益 | 加载技能前后的任务通过率差 vs token 开销增量 | 79.6% 公开技能零增益、开销最高 +451%（Han et al. 2026），盲目加载即浪费 |
+| Cache 命中率 | 输入 token 命中缓存的比例 | Agent 路径高度分叉时会失效，需配合语义压缩 |
+| Token 预算利用率 | 各任务/团队实际消耗 vs 预算上限 | 超预算触发审查，而不是自动追加 |
+
 ## Measurement Cadence
 
 | Stage | Measure |

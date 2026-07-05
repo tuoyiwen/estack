@@ -38,6 +38,9 @@ updated: 2026-07-03
 | Workflow readiness | 流程混乱 | 有大致流程 | 有明确输入、输出、owner、review |
 | Risk manageability | 风险不明 | 可局部控制 | 有明确边界和复核机制 |
 | Manager load | 会增加隐性负担 | 可估算 | 有 review time 和支持机制 |
+| Feedback signal | 只能人工验证，验证成本接近或超过生成收益 | 弱确定性反馈：有标准/历史数据/模板可回测比对 | 自动确定性验证（编译、测试、规则校验） |
+
+Feedback signal 维度依据：编程是"通用性的特例"，其 token 经济建立在自动验证闭环上（见 [[../references/research-anchors|research anchors]]）。得分低的场景不代表不能做，而是 pilot 必须先回答验证成本由谁承担；1-3 分之间的弱确定性反馈场景（影像筛查、需求预测、合同初筛）是从数字场景走向传统行业的桥梁 use case。
 
 ## Routing Rules
 
