@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>estack Visual Map</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-2: #eef3f7;
+      --ink: #16212f;
+      --muted: #5a6878;
+      --line: #d9e0e8;
+      --strong-line: #aebbc8;
+      --blue: #246bfe;
+      --teal: #0d8b7f;
+      --amber: #b7791f;
+      --red: #b42318;
+      --green: #16855d;
+      --shadow: 0 14px 30px rgba(28, 39, 55, 0.08);
+      --radius: 8px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav a {
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--surface-2);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 28px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+      gap: 28px;
+      align-items: end;
+      padding: 24px 0 30px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      margin: 18px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .status-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .status-panel h2,
+    section h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 10px;
+      background: #fbfcfd;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      margin-top: 28px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 700px;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 26px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 840px;
+      background: var(--surface);
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f2f5f8;
+      color: #314053;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.92em;
+      color: #243549;
+      background: #f0f3f6;
+      border: 1px solid #e2e8ef;
+      border-radius: 4px;
+      padding: 1px 4px;
+    }
+
+    .object-map {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      padding: 14px;
+    }
+
+    .lane-title {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .node-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .node {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--strong-line);
+      border-radius: 7px;
+      background: var(--surface);
+      padding: 12px;
+    }
+
+    .node.blue {
+      border-left-color: var(--blue);
+    }
+
+    .node.teal {
+      border-left-color: var(--teal);
+    }
+
+    .node.amber {
+      border-left-color: var(--amber);
+    }
+
+    .node.red {
+      border-left-color: var(--red);
+    }
+
+    .node strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .node span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .flow {
+      display: grid;
+      gap: 12px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) 42px minmax(150px, 1fr) 42px minmax(150px, 1fr);
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flow-row.single {
+      grid-template-columns: 1fr;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 20px;
+      min-height: 44px;
+    }
+
+    .arrow svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+    }
+
+    .step {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fbfcfd;
+    }
+
+    .step .num {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--ink);
+      color: white;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .step strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .step span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .artifact-chain {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .artifact {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 154px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      overflow: hidden;
+    }
+
+    .artifact-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 12px 10px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex: 0 0 auto;
+    }
+
+    .artifact-head strong {
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .artifact-body {
+      padding: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .artifact-body p {
+      margin: 0 0 8px;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr) minmax(0, 1.2fr);
+      gap: 14px;
+    }
+
+    .matrix-col {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+      padding: 14px;
+    }
+
+    .dependency {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .dependency:last-child {
+      border-bottom: 0;
+    }
+
+    .dependency strong {
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .files {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .file {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      padding: 3px 7px;
+      color: #314053;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .gap-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .gap {
+      display: grid;
+      grid-template-columns: minmax(160px, 0.8fr) minmax(0, 1.2fr) minmax(0, 1.2fr);
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfd;
+    }
+
+    .gap strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .gap small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    .success,
+    .failure {
+      font-size: 12px;
+    }
+
+    .success b {
+      color: var(--green);
+    }
+
+    .failure b {
+      color: var(--red);
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .object-map,
+      .matrix,
+      .gap {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-chain {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 18px;
+      }
+
+      main {
+        padding: 24px 16px 56px;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .label {
+        margin-top: 10px;
+      }
+
+      .status-grid,
+      .artifact-chain {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      section,
+      .status-panel {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">ES</div>
+        <span>estack Visual Map</span>
+      </div>
+      <nav class="nav" aria-label="Page sections">
+        <a href="#evidence">Evidence</a>
+        <a href="#objects">Objects</a>
+        <a href="#journey">Journey</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#dependencies">Dependencies</a>
+        <a href="#gaps">Gaps</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <h1>estack as a working system</h1>
+          <p class="summary">
+            This page visualizes the local estack repository as a skill system, knowledge base, artifact chain, and productization backlog. The map only uses files present in this checkout on 2026-07-08.
+          </p>
+        </div>
+        <aside class="status-panel" aria-label="Repository facts">
+          <h2>Current objects</h2>
+          <div class="status-grid">
+            <div class="metric"><strong>0.4.0</strong><span><code>VERSION</code> value</span></div>
+            <div class="metric"><strong>7</strong><span>skill folders</span></div>
+            <div class="metric"><strong>3</strong><span>knowledge layers</span></div>
+            <div class="metric"><strong>4</strong><span>visible product gaps</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="evidence">
+        <div class="section-head">
+          <div>
+            <h2>Evidence Boundary</h2>
+            <p>Claim object, observable variable, evidence file, and boundary are listed separately so the map does not claim adoption, install count, customer usage, or business outcomes.</p>
+          </div>
+          <span class="label">evidence scope</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Claim Object</th>
+                <th>Observable Variable</th>
+                <th>Current Evidence</th>
+                <th>Boundary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>estack</code> repository</td>
+                <td>Public positioning</td>
+                <td><code>README.md</code> defines estack as an Enterprise AI-Native Innovation Stack for enterprise innovation workflows.</td>
+                <td>This page does not verify external users, installs, or business outcomes.</td>
+              </tr>
+              <tr>
+                <td><code>VERSION</code> file</td>
+                <td>Version value</td>
+                <td><code>VERSION</code> contains <code>0.4.0</code>.</td>
+                <td><code>project-notes/00_estack 项目总览.md</code> still says current version is <code>v0.1</code>; treat that project note value as stale until updated.</td>
+              </tr>
+              <tr>
+                <td><code>skills/</code> folder</td>
+                <td>Skill count</td>
+                <td>Seven skill folders are present: one router skill plus six core skills.</td>
+                <td>The count is based on local files visible on 2026-07-08.</td>
+              </tr>
+              <tr>
+                <td><code>knowledge-base/</code> folder</td>
+                <td>Knowledge layers</td>
+                <td><code>core/</code>, <code>references/</code>, and <code>archive/</code> are defined in <code>knowledge-base/README.md</code>.</td>
+                <td>Archive content is evidence storage, not default skill context.</td>
+              </tr>
+              <tr>
+                <td><code>project-notes/</code> folder</td>
+                <td>Productization workstream</td>
+                <td>Project notes describe onboarding, knowledge base, demo case, and output material planning.</td>
+                <td>Project notes are planning artifacts, not completed release evidence unless the target file exists.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="objects">
+        <div class="section-head">
+          <div>
+            <h2>Repository Object Map</h2>
+            <p>The repository object map shows which files define positioning, which folders execute the skill system, and which folders provide judgment material.</p>
+          </div>
+          <span class="label">object graph</span>
+        </div>
+        <div class="object-map">
+          <div class="lane">
+            <p class="lane-title">Product surface</p>
+            <div class="node-list">
+              <div class="node blue"><strong><code>README.md</code></strong><span>Positioning, install command, First 5 Minutes, recommended flow.</span></div>
+              <div class="node blue"><strong><code>VERSION</code></strong><span>Current local value: <code>0.4.0</code>.</span></div>
+              <div class="node amber"><strong><code>project-notes/</code></strong><span>Planning notes for onboarding, output materials, knowledge base, and demo case.</span></div>
+            </div>
+          </div>
+          <div class="lane">
+            <p class="lane-title">Skill system</p>
+            <div class="node-list">
+              <div class="node teal"><strong><code>$estack</code></strong><span>Router that classifies user need and recommends the next 2-3 skills.</span></div>
+              <div class="node"><strong><code>$e-innovation-map</code></strong><span>Produces an AI Innovation Use Case Portfolio.</span></div>
+              <div class="node"><strong><code>$e-collaboration-design</code></strong><span>Produces a collaboration configuration and interaction protocol.</span></div>
+              <div class="node"><strong><code>$e-innovation-workflow</code></strong><span>Produces an as-is/to-be workflow blueprint, SOP, and backlog.</span></div>
+              <div class="node"><strong><code>$e-innovation-pilot</code></strong><span>Produces a 30/60/90-day pilot charter.</span></div>
+              <div class="node"><strong><code>$e-innovation-metrics</code></strong><span>Produces a dashboard spec, quality rubric, and decision rule.</span></div>
+              <div class="node"><strong><code>$e-ai-governance</code></strong><span>Produces a governance matrix and employee-facing usage rules.</span></div>
+            </div>
+          </div>
+          <div class="lane">
+            <p class="lane-title">Judgment library</p>
+            <div class="node-list">
+              <div class="node teal"><strong><code>knowledge-base/core/</code></strong><span>Default skill context: use cases, patterns, metrics, governance, templates, prompts.</span></div>
+              <div class="node amber"><strong><code>knowledge-base/references/</code></strong><span>Cases, research anchors, technical enablers, and evidence workflows.</span></div>
+              <div class="node"><strong><code>knowledge-base/archive/</code></strong><span>Source triage notes and original source storage.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey">
+        <div class="section-head">
+          <div>
+            <h2>User Journey And Skill Path</h2>
+            <p>The main path converts a broad enterprise AI request into a bounded pilot decision. The decision variable at the end is scale, iterate, or stop.</p>
+          </div>
+          <span class="label">recommended flow</span>
+        </div>
+        <div class="flow">
+          <div class="flow-row">
+            <div class="step"><span class="num">0</span><strong>Enterprise AI request</strong><span>Example object: an innovation or knowledge-work workflow where the team asks where AI should enter.</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="step"><span class="num">1</span><strong><code>$estack</code></strong><span>Classifies the request and routes the next action.</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="step"><span class="num">2</span><strong><code>$e-innovation-map</code></strong><span>Classifies use cases as Now, Next, Later, or Avoid.</span></div>
+          </div>
+          <div class="flow-row">
+            <div class="step"><span class="num">3</span><strong><code>$e-collaboration-design</code></strong><span>Defines human role, AI role, authority, review, and escalation.</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="step"><span class="num">4</span><strong><code>$e-innovation-workflow</code></strong><span>Converts the configuration into an as-is/to-be workflow and SOP.</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="step"><span class="num">5</span><strong><code>$e-innovation-pilot</code></strong><span>Defines a bounded 30/60/90-day experiment.</span></div>
+          </div>
+          <div class="flow-row">
+            <div class="step"><span class="num">6a</span><strong><code>$e-innovation-metrics</code></strong><span>Defines baseline, dashboard spec, threshold, and decision rule.</span></div>
+            <div class="arrow" aria-hidden="true">+</div>
+            <div class="step"><span class="num">6b</span><strong><code>$e-ai-governance</code></strong><span>Defines data, authority, review, records, and accountability.</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="step"><span class="num">7</span><strong>Scale / iterate / stop</strong><span>Decision object: pilot result. Decision variable: evidence against the pre-defined rule.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="artifacts">
+        <div class="section-head">
+          <div>
+            <h2>Artifact Chain</h2>
+            <p>Each skill produces a concrete object that becomes input for the next skill. This chain is the core operating model of estack.</p>
+          </div>
+          <span class="label">deliverables</span>
+        </div>
+        <div class="artifact-chain">
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>AI Innovation Use Case Portfolio</strong></div>
+            <div class="artifact-body"><p>Object: candidate enterprise innovation tasks.</p><p>Decision variable: Now / Next / Later / Avoid.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>Collaboration Configuration Card</strong></div>
+            <div class="artifact-body"><p>Object: selected task.</p><p>Variables: sequence, AI role, human role, authority, safeguards.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>Human-AI Interaction Protocol</strong></div>
+            <div class="artifact-body"><p>Object: task episode.</p><p>Variables: briefing format, AI response structure, review checklist, escalation rule.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>AI-native Workflow Blueprint</strong></div>
+            <div class="artifact-body"><p>Object: operating workflow.</p><p>Variables: human work, AI work, handoff, decision, evidence, risk control.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>New SOP + Implementation Backlog</strong></div>
+            <div class="artifact-body"><p>Object: repeatable operating model.</p><p>Variables: owner, input, review standard, dependency, priority.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>AI Innovation Pilot Charter</strong></div>
+            <div class="artifact-body"><p>Object: bounded pilot.</p><p>Variables: owner, participants, comparison design, success criteria, stop criteria.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>Metrics Dashboard Spec</strong></div>
+            <div class="artifact-body"><p>Object: pilot evidence system.</p><p>Variables: metric, definition, data source, cadence, threshold, owner.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>Governance Matrix</strong></div>
+            <div class="artifact-body"><p>Object: workflow risk controls.</p><p>Variables: risk tier, data allowed, AI authority, human review, approval, records.</p></div>
+          </article>
+          <article class="artifact">
+            <div class="artifact-head"><span class="dot"></span><strong>Scale / Iterate / Stop Memo</strong></div>
+            <div class="artifact-body"><p>Object: pilot decision.</p><p>Variable: evidence against the decision rule.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="dependencies">
+        <div class="section-head">
+          <div>
+            <h2>Skill To Knowledge-Base Dependency Map</h2>
+            <p>The dependency map names the file objects each skill reads first, plus the reference files used when cases, mechanisms, evidence, or technical boundaries are needed.</p>
+          </div>
+          <span class="label">dependency map</span>
+        </div>
+        <div class="matrix">
+          <div class="matrix-col">
+            <p class="lane-title">Core files</p>
+            <div class="files">
+              <span class="file">use-cases.md</span>
+              <span class="file">collaboration-patterns.md</span>
+              <span class="file">workflow-patterns.md</span>
+              <span class="file">output-templates.md</span>
+              <span class="file">metrics-and-rubrics.md</span>
+              <span class="file">governance-controls.md</span>
+              <span class="file">onboarding-prompts.md</span>
+            </div>
+          </div>
+          <div class="matrix-col">
+            <p class="lane-title">Skill dependencies</p>
+            <div class="dependency"><strong>$e-innovation-map</strong><div class="files"><span class="file">use-cases.md</span><span class="file">benchmark-cases.md</span><span class="file">web-search-evidence-workflows.md</span></div></div>
+            <div class="dependency"><strong>$e-collaboration-design</strong><div class="files"><span class="file">collaboration-patterns.md</span><span class="file">research-anchors.md</span><span class="file">output-templates.md</span></div></div>
+            <div class="dependency"><strong>$e-innovation-workflow</strong><div class="files"><span class="file">workflow-patterns.md</span><span class="file">benchmark-cases.md</span></div></div>
+            <div class="dependency"><strong>$e-innovation-pilot</strong><div class="files"><span class="file">output-templates.md</span><span class="file">governance-controls.md</span><span class="file">workflow-patterns.md</span></div></div>
+            <div class="dependency"><strong>$e-innovation-metrics</strong><div class="files"><span class="file">metrics-and-rubrics.md</span></div></div>
+            <div class="dependency"><strong>$e-ai-governance</strong><div class="files"><span class="file">governance-controls.md</span><span class="file">web-search-evidence-workflows.md</span><span class="file">technical-enablers.md</span></div></div>
+            <div class="dependency"><strong>$estack</strong><div class="files"><span class="file">onboarding-prompts.md</span><span class="file">output-templates.md</span></div></div>
+          </div>
+          <div class="matrix-col">
+            <p class="lane-title">Reference files</p>
+            <div class="files">
+              <span class="file">benchmark-cases.md</span>
+              <span class="file">research-anchors.md</span>
+              <span class="file">technical-enablers.md</span>
+              <span class="file">web-search-evidence-workflows.md</span>
+            </div>
+            <p class="footer-note">Reference files support case grounding, mechanism grounding, model adaptation boundaries, and source-quality rules. Archive files store source material and are not default context.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="optimization">
+        <div class="section-head">
+          <div>
+            <h2>What estack Is Optimizing For</h2>
+            <p>This table names the object and observable variable for each operating concern, then maps it to the estack artifact that carries the decision.</p>
+          </div>
+          <span class="label">operating variables</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Object</th>
+                <th>Observable Variable</th>
+                <th>estack Treatment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Enterprise AI adoption</td><td>Workflow change, not tool usage alone</td><td><code>README.md</code> says estack is not a generic AI tool recommendation kit.</td></tr>
+              <tr><td>Innovation use case selection</td><td>Value, feasibility, risk, and first experiment</td><td><code>$e-innovation-map</code> outputs a prioritized portfolio.</td></tr>
+              <tr><td>Human-AI collaboration</td><td>Sequence, authority, review, escalation, and records</td><td><code>$e-collaboration-design</code> outputs a configuration card and protocol.</td></tr>
+              <tr><td>Workflow redesign</td><td>As-is state, to-be state, SOP, backlog</td><td><code>$e-innovation-workflow</code> outputs workflow tables and implementation backlog.</td></tr>
+              <tr><td>Pilot execution</td><td>Owner, participants, comparison condition, success criteria, stop criteria</td><td><code>$e-innovation-pilot</code> outputs a charter and 30/60/90 timeline.</td></tr>
+              <tr><td>Measurement</td><td>Metric definition, data source, cadence, threshold, owner</td><td><code>$e-innovation-metrics</code> outputs a dashboard spec.</td></tr>
+              <tr><td>Governance</td><td>Risk tier, data rule, AI authority, review, approval, recordkeeping</td><td><code>$e-ai-governance</code> outputs a governance matrix.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="gaps">
+        <div class="section-head">
+          <div>
+            <h2>Current Productization Gaps Visible From The Repo</h2>
+            <p>These gaps are based on local file evidence. They are not claims about user behavior, market fit, or external adoption.</p>
+          </div>
+          <span class="label">next actions</span>
+        </div>
+        <div class="gap-grid">
+          <div class="gap">
+            <div><strong>Version metadata</strong><small>Evidence: <code>README.md</code>, <code>VERSION</code>, <code>project-notes/00_estack 项目总览.md</code>.</small></div>
+            <div>Recommended action: update the project note version field to match the intended current version.</div>
+            <div><div class="success"><b>Success variable:</b> all current-state version mentions match <code>0.4.0</code>.</div><div class="failure"><b>Failure condition:</b> a current-state note still names <code>v0.1</code>.</div></div>
+          </div>
+          <div class="gap">
+            <div><strong>Demo case</strong><small>Evidence: <code>project-notes/04_产出物料规划.md</code> and top-level file list.</small></div>
+            <div>Recommended action: add <code>examples/demo-case-new-product-concept.md</code> or an HTML equivalent.</div>
+            <div><div class="success"><b>Success variable:</b> demo file walks through map → collaboration → workflow → pilot → metrics → governance.</div><div class="failure"><b>Failure condition:</b> README references a demo that does not exist.</div></div>
+          </div>
+          <div class="gap">
+            <div><strong>Output material packaging</strong><small>Evidence: <code>knowledge-base/core/output-templates.md</code> and top-level file list.</small></div>
+            <div>Recommended action: either keep templates centralized and link them from README, or create a <code>templates/</code> folder with copy-ready files.</div>
+            <div><div class="success"><b>Success variable:</b> new user can open one path and copy each template.</div><div class="failure"><b>Failure condition:</b> template location remains split between planning notes and hidden core file.</div></div>
+          </div>
+          <div class="gap">
+            <div><strong>Onboarding trial path</strong><small>Evidence: <code>README.md</code> and <code>knowledge-base/core/onboarding-prompts.md</code>.</small></div>
+            <div>Recommended action: add one complete pasted prompt plus expected artifact name under each target persona.</div>
+            <div><div class="success"><b>Success variable:</b> README maps persona → prompt → first artifact.</div><div class="failure"><b>Failure condition:</b> persona table points to skills but not a runnable first prompt.</div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,113 +1,147 @@
+<div align="center">
+
 # estack
 
-Enterprise AI-Native Innovation Stack.
+### Enterprise AI-Native Innovation Stack
 
-estack is a skill set for helping enterprises redesign human-AI collaboration in innovation and knowledge-work processes. It helps teams decide where AI should enter the work, how humans and AI should divide roles, how workflows should change, how pilots should be run, how outcomes should be measured, and how governance should keep adoption safe.
+**A skill set for redesigning how humans and AI work together inside real innovation and knowledge-work processes.**
 
-**What estack is not:** a generic AI tool recommendation kit, a prompt collection, or a model comparison guide. If 90% of your people use AI tools but delivery has not changed, the problem estack works on is the workflow and the organization, not the tools.
+[![License](https://img.shields.io/badge/license-Apache--2.0-1f6feb.svg?style=flat-square)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.4.0-3fb950.svg?style=flat-square)](VERSION)
+[![Validate](https://img.shields.io/github/actions/workflow/status/tuoyiwen/estack/validate.yml?style=flat-square&label=validate)](.github/workflows/validate.yml)
+[![Skills](https://img.shields.io/badge/skills-7-8957e5.svg?style=flat-square)](skills/)
 
-## First 5 Minutes
+</div>
 
-1. Install all skills:
+---
 
-   ```bash
-   npx -y skills add tuoyiwen/estack -g --all
-   ```
+estack turns "we should use more AI" into a sequence of decisions an enterprise can actually run. It helps a team decide where AI should enter the work, how humans and AI should divide roles, how the workflow itself should change, how to prove value in a bounded pilot, how to measure the outcome, and how governance should keep adoption safe. Every skill ends in a meeting-ready artifact, so a leadership team walks away with a portfolio, a blueprint, or a charter, never with a vague recommendation.
 
-2. Start with the router:
+> **What estack is not.** It is not a tool recommendation kit, a prompt collection, or a model comparison guide. When 90% of a company uses AI tools but delivery has not moved, the constraint lives in the workflow and the organization, and that is the layer estack works on.
 
-   ```text
-   Use $estack to help our company identify where AI should enter our innovation workflow first.
-   ```
+## The problem it targets
 
-3. Follow the path it recommends, for example:
+Most enterprise AI adoption stalls on two gaps that no tool purchase closes. estack names them up front and locates a client on them before recommending anything.
 
-   ```text
-   Use $e-innovation-map to identify and prioritize AI innovation use cases for a B2B SaaS company. Focus on product, marketing, and customer success workflows.
-   ```
+Using AI tools does not equal individual productivity. A designer with a copilot still ships at the old rate when the review loop and the handoff are unchanged.
 
-Every skill ends with a concrete artifact (a portfolio, a blueprint, a charter, a dashboard spec, a governance matrix), not just advice.
+Individual productivity does not equal organizational productivity. Ten engineers each 30% faster produce nothing extra when the bottleneck is a weekly release train and a single approver.
 
-## Who Is It For
+These two inequalities come from the Kuaishou AI-Native restructuring case and drive the diagnosis in `$e-innovation-map`.
+
+## What you get
+
+Each of the six working skills produces one concrete deliverable.
+
+| Skill | Deliverable |
+|---|---|
+| `$e-innovation-map` | AI innovation use-case portfolio, scored and prioritized |
+| `$e-collaboration-design` | Human-AI collaboration configuration and interaction protocol |
+| `$e-innovation-workflow` | As-is / to-be AI-native workflow blueprint and SOP |
+| `$e-innovation-pilot` | 30 / 60 / 90-day pilot plan with success criteria |
+| `$e-innovation-metrics` | Outcome, adoption, and interaction metric set with a dashboard spec |
+| `$e-ai-governance` | Governance matrix, review rules, and risk boundaries |
+
+`$estack` sits above them as the router that reads the request and hands off to the right skill in the right order. A filled example artifact (a Collaboration Configuration Card) lives in [`knowledge-base/core/output-templates.md`](knowledge-base/core/output-templates.md).
+
+## Quickstart
+
+Install the full set with one command.
+
+```bash
+npx -y skills add tuoyiwen/estack -g --all
+```
+
+Start with the router and let it choose the path.
+
+```text
+Use $estack to help our company decide where AI should enter our innovation workflow first.
+```
+
+Or jump straight to a specific stage.
+
+```text
+Use $e-innovation-map to identify and prioritize AI innovation use cases for a B2B SaaS company,
+focusing on product, marketing, and customer success workflows.
+```
+
+Starter prompts for every entry point are in [`knowledge-base/core/onboarding-prompts.md`](knowledge-base/core/onboarding-prompts.md).
+
+## Choose your path
 
 | You are | You want | Start with |
 |---|---|---|
-| Enterprise leader | Where to start AI transformation and how to prove value | `$estack` -> `$e-innovation-map` -> `$e-innovation-pilot` |
-| Consultant / transformation lead | Diagnosis, workflow redesign, and client-ready deliverables | `$e-innovation-map` -> `$e-collaboration-design` -> `$e-innovation-workflow` -> `$e-ai-governance` |
-| Product / marketing lead | AI inside a real innovation process (concepts, campaigns, insights) | `$e-innovation-map` + `$e-collaboration-design` |
+| Enterprise leader | Where to start and how to prove value | `$estack` → `$e-innovation-map` → `$e-innovation-pilot` |
+| Consultant / transformation lead | Diagnosis, redesign, and client-ready deliverables | `$e-innovation-map` → `$e-collaboration-design` → `$e-innovation-workflow` → `$e-ai-governance` |
+| Product / marketing lead | AI inside a real innovation process | `$e-innovation-map` + `$e-collaboration-design` |
 | Engineering / platform lead | From AI coding tools to agentic workflows | `$e-innovation-workflow` (maturity diagnosis + AI-ready checklist) |
-| Researcher | Human-AI configurations, metrics, and pilot designs to study | `$e-collaboration-design` + `$e-innovation-metrics` |
+| Researcher | Human-AI configurations, metrics, pilot designs | `$e-collaboration-design` + `$e-innovation-metrics` |
 
-Starter prompts for each entry are in [`knowledge-base/core/onboarding-prompts.md`](knowledge-base/core/onboarding-prompts.md).
+## How the skills chain
 
-## Core Skills
+The six skills form one operating sequence from opportunity to safe scale.
 
-| Skill | What It Produces |
-|---|---|
-| `$estack` | Route the user to the right estack skill and recommend the next path |
-| `$e-innovation-map` | AI innovation use case portfolio and prioritization |
-| `$e-collaboration-design` | Human-AI collaboration configuration and interaction protocol |
-| `$e-innovation-workflow` | As-is/to-be AI-native workflow blueprint and SOP |
-| `$e-innovation-pilot` | 30/60/90-day enterprise AI innovation pilot plan |
-| `$e-innovation-metrics` | Innovation outcome, adoption, and interaction metrics |
-| `$e-ai-governance` | AI governance matrix, review rules, and risk boundaries |
+```text
+$e-innovation-map        find and rank where AI creates value
+        ↓
+$e-collaboration-design  define the human-AI split for the top use case
+        ↓
+$e-innovation-workflow   turn that split into an operating workflow
+        ↓
+$e-innovation-pilot      test it in a bounded 30/60/90-day experiment
+        ↓
+$e-innovation-metrics    define the evidence and the scale decision
+        ↓
+$e-ai-governance         set risk boundaries before rollout
+```
 
-## Recommended Flow
+Each `SKILL.md` closes with an explicit handoff to the next skill, so the chain runs without a human re-routing it every step.
 
-1. Map the enterprise's AI innovation opportunities with `$e-innovation-map`.
-2. Choose one high-value use case and design the human-AI configuration with `$e-collaboration-design`.
-3. Convert the configuration into an operating workflow with `$e-innovation-workflow`.
-4. Test it through a bounded pilot with `$e-innovation-pilot`.
-5. Define evidence and scale criteria with `$e-innovation-metrics`.
-6. Add practical risk boundaries with `$e-ai-governance`.
+## Grounded in evidence, not general reading
 
-## Knowledge Base
+The skills read from a compact judgment library instead of open-ended browsing, which keeps output consistent and defensible in front of a client.
 
-The skills are grounded in a compact judgment library rather than general reading:
+The `core/` layer holds what skills read first, including use cases, collaboration patterns, workflow patterns, output templates, metrics, and governance controls. The `references/` layer holds research anchors and benchmark cases, including Block's six-stage agentic engineering ladder and Kuaishou's three-layer AI-Native restructuring, plus a web-search evidence workflow for grounding claims in current sources. The `archive/` layer holds triaged original sources as evidence storage rather than default context.
 
-- `knowledge-base/core/` holds what skills read first: use cases, collaboration patterns, workflow patterns, output templates, metrics, governance controls, and onboarding prompts.
-- `knowledge-base/references/` holds research anchors, benchmark cases (Block's agentic engineering organization, Kuaishou's three-layer AI Native restructuring), technical enablers, and web-search/evidence workflows.
-- `knowledge-base/archive/` holds source triage notes and original source material. It is evidence storage, not default skill context.
+Skills degrade gracefully offline. Every `SKILL.md` embeds its load-bearing essentials, so a standalone install still runs a full diagnosis, and a repo checkout only adds depth.
 
-Routing rules are in [`knowledge-base/README.md`](knowledge-base/README.md).
+## Built to ship
 
-Skills degrade gracefully when installed without the repo: each SKILL.md carries its own inline essentials (pattern menu, maturity anchors, built-in checks, measurement pitfalls, core controls), and the knowledge base adds depth when a full checkout is available.
+estack is maintained like a product, not a folder of notes.
 
-## Repository Layout
+Continuous validation runs on every push and pull request through [`.github/workflows/validate.yml`](.github/workflows/validate.yml). The check in [`scripts/validate.sh`](scripts/validate.sh) verifies version consistency across `VERSION`, `package.json`, and all seven skills, confirms every `SKILL.md` carries valid frontmatter, resolves every knowledge-base link referenced by a skill, and enforces source-file naming. A one-command release path lives in [`scripts/release.sh`](scripts/release.sh), routing rules are covered by golden cases in [`evals/routing.md`](evals/routing.md), and every change is recorded in [`CHANGELOG.md`](CHANGELOG.md). Contribution rules are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Repository layout
 
 ```text
 estack/
-├── README.md
-├── VERSION
-├── knowledge-base/
-│   ├── README.md
-│   ├── core/
-│   ├── references/
-│   └── archive/
-├── project-notes/
-└── skills/
-    ├── estack/
-    ├── e-innovation-map/
-    ├── e-collaboration-design/
-    ├── e-innovation-workflow/
-    ├── e-innovation-pilot/
-    ├── e-innovation-metrics/
-    └── e-ai-governance/
+├── skills/                     # 7 skills, each a SKILL.md + agents/openai.yaml
+│   ├── estack/                 # router
+│   ├── e-innovation-map/
+│   ├── e-collaboration-design/
+│   ├── e-innovation-workflow/
+│   ├── e-innovation-pilot/
+│   ├── e-innovation-metrics/
+│   └── e-ai-governance/
+├── knowledge-base/             # judgment library the skills read from
+│   ├── core/                   # read-first patterns, templates, metrics, controls
+│   ├── references/             # research anchors and benchmark cases
+│   └── archive/                # triaged original sources (evidence storage)
+├── evals/routing.md            # golden routing cases for $estack
+├── scripts/                    # validate.sh, release.sh
+├── .github/workflows/          # CI validation
+├── LICENSE  NOTICE  CHANGELOG.md  CONTRIBUTING.md  VERSION  package.json
+└── project-notes/              # development planning notes
 ```
 
-Each skill folder contains:
+## A note on language
 
-- `SKILL.md`: the agent-facing workflow and output instructions
-- `agents/openai.yaml`: UI metadata for skill lists and default prompts
+estack keeps "innovation" in outward-facing titles and enterprise communication, and reserves "creativity" for measurement logic and academic grounding, where the novelty-and-usefulness distinction matters. This keeps the product credible for a business audience while preserving the research mechanism underneath.
 
-`project-notes/` contains planning notes for how estack is being developed.
+## License
 
-## Design Principle
+Licensed under the [Apache License 2.0](LICENSE). You may use, modify, and redistribute estack, including commercially, provided you retain the attribution in [`NOTICE`](NOTICE). The license includes an explicit patent grant.
 
-Use "innovation" in outward-facing titles and enterprise communication. Use "creativity" only when discussing measurement logic, academic grounding, or the novelty/usefulness distinction.
-
-This keeps the product credible for enterprises while preserving the research mechanism underneath.
-
-## Version
-
-v0.4 makes each skill self-contained and chains them: every SKILL.md now embeds its load-bearing essentials (collaboration pattern menu, maturity anchors, pilot checks, measurement pitfalls, governance controls) so standalone installs work without the repo checkout; skills hand off to each other via explicit Next Skill sections; artifacts follow the user's working language; descriptions trigger on Chinese requests. Next: a full demo case walkthrough.
+<div align="center">
+<sub>estack · Enterprise AI-Native Innovation Stack · v0.4.0</sub>
+</div>
