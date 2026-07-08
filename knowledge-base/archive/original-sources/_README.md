@@ -39,6 +39,7 @@ updated: 2026-07-03
 | Salim et al. 2026: Tokenomics (MSR) | `2026-07-05_Salim-etal_Tokenomics-MSR_source-card.md` | paper card | `core/metrics-and-rubrics.md` |
 | Gao et al. 2026: SkillReducer | `2026-07-05_Gao-etal_SkillReducer_source-card.md` | paper card | `references/technical-enablers.md` |
 | Han et al. 2026: SWE-Skills-Bench | `2026-07-05_Han-etal_SWE-Skills-Bench_source-card.md` | paper card | `references/technical-enablers.md` / `core/metrics-and-rubrics.md` |
+| Lenny's Newsletter: 2026 tech worker sentiment survey | `2026-07-08_Lennys-Newsletter_Tech-Worker-Sentiment-2026_原文.md` | full text archived | `core/governance-controls.md` / `references/research-anchors.md` / `core/metrics-and-rubrics.md` |
 
 ## 后续处理原则
 

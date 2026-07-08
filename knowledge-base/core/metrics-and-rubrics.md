@@ -104,6 +104,21 @@ Source: [[../archive/original-sources/2026-07-05_腾讯研究院_Token不经济_
 | Cache 命中率 | 输入 token 命中缓存的比例 | Agent 路径高度分叉时会失效，需配合语义压缩 |
 | Token 预算利用率 | 各任务/团队实际消耗 vs 预算上限 | 超预算触发审查，而不是自动追加 |
 
+## Workforce Sentiment Metrics
+
+Source: [[../archive/original-sources/2026-07-08_Lennys-Newsletter_Tech-Worker-Sentiment-2026_原文|Lenny 2026 情绪调查归档]]。用途：pilot 前后追踪员工侧感受，防止把 sorting risk 当 productivity win。行业基线来自 product-centric 自选样本，作参照不作规范。
+
+| Metric | Definition | 2026 行业参照 |
+|---|---|---|
+| AI 身份分布 | amplified / redefined / destabilized / diminished 四选一 | 49% / 27% / 14% / 5%；身份立场是感受的最强预测变量（d≈1.55） |
+| Squeeze 感知 | 认同"被期待同酬做更多"的比例 | 51%（远高于怕被替代的 22%） |
+| Burnout 率 | 中度及以上倦怠比例 | 55.7%（年增 11pp） |
+| 矛盾情绪率 | 同时勾选至少一正一负情绪的比例 | 77%（smiling exhaustion） |
+| Resentful 占比 | 感到"被迫使用 AI"的比例 | 约 12%；该群体乐观度与推荐意愿最低 |
+| Manager 有效性 | 员工评价 manager 高效的比例 | 25.5%；manager 质量是 burnout 最强驱动 |
+
+解读规则：采纳率高 + squeeze 感知高 = 收益正在被 pocket 成预期，先处理负荷再推广度；destabilized 比例在创意/研究类角色和 junior 中偏高属预期，需配专门支持而非统一培训。
+
 ## Measurement Cadence
 
 | Stage | Measure |

@@ -157,6 +157,29 @@ Source: [[../archive/original-sources/2026-07-05_腾讯云开发者_Loop-Enginee
 - 定期 walkthrough 自主系统的产出，显式对抗理解力负债；高风险变更保留人类最终验收。
 - maker 与 checker 尽量使用不同指令甚至不同模型。
 
+## AI adoption as sorting risk: the squeeze and the identity divide
+
+Source: [[../archive/original-sources/2026-07-08_Lennys-Newsletter_Tech-Worker-Sentiment-2026_原文|Lenny's Newsletter 2026 情绪调查归档]]（N=5,332 在职者；product-centric 自选样本，外推标 partial）
+
+### 核心判断
+
+同一项 AI adoption 会把员工分成被抬升和被动摇的两半：49% 感到 amplified，19% 感到 destabilized/diminished。身份立场对职业感受的预测力（d≈1.55）超过角色、级别、公司规模之和。治理上要把 adoption 当 **sorting risk** 管理，而不是当纯 productivity win 庆祝。
+
+### 风险信号
+
+- **Squeeze 而非替代才是主导恐惧**：怕"同酬更多产出"51%、"不可持续节奏"46%、"质量下滑"41%；怕"被 AI 取代"仅 22%。"AI 接管部分工作"与裁员焦虑相关约为零（r=+0.05）。
+- 生产力收益被默认 pocket 成更高预期（"every gain becomes the new baseline"），是制造 Resentful 群体（约 12%，全员感到被迫用 AI、最低乐观、最低推荐意愿）的最快路径。
+- 产出更快但质量与人的敏锐度下滑："I don't fully understand what I merge" 类信号是 comprehension debt（见上文 L4 风险）的员工侧回声。
+- 角色不对称：创意与研究类角色连续两年情绪最差（研究员 51% 职业安全焦虑 vs founder 15%），且往往配着评分最差的 manager，双重打击 = 流失前信号。
+- Junior 管道腐烂：AI 做掉入门工作 = 用今年的产出饿死明年的 senior 人才；early-career IC 身份动摇比例最高（27%）。
+
+### 控制规则
+
+- Pilot 设计显式回答：生产力收益如何分配？转成预期抬升、还是转成 relief/scope 调整/薪酬对话？产出基准翻倍应触发 scope 与补偿讨论，而不是静默吸收。
+- 按身份分层支持：对 amplified 群体给授权，对 destabilized/disoriented 群体给 role clarity 和再训练，对 resentful 群体先解压（去掉"不用 AI 就淘汰"式话术）再谈采纳。
+- Role impact review 对创意/研究类角色单独做，配套检查其 manager 质量（manager effectiveness 是 burnout 最强驱动，强于 AI 态度本身）。
+- 保住 bottom rung：入门任务被 AI 接管后，显式设计 junior 的替代成长路径（对应上文 `junior_growth_space` 检查项）。
+
 ## Web search, citation, and source-risk controls
 
 Source: [[../references/web-search-evidence-workflows|Web Search and Research Workflows]]
