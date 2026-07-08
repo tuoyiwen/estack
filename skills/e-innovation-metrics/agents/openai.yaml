@@ -1,3 +1,4 @@
+version: "0.4.0"
 interface:
   display_name: "Innovation Metrics"
   short_description: "Measure AI innovation outcomes and adoption"
